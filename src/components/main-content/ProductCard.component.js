@@ -21,12 +21,12 @@ function ProductCard(props) {
           current.removeClass('active');
           current_dot.removeClass('active');
 
-          if (current.next().length > 0) {
-            current.next().addClass('active');
-            current_dot.next().addClass('active');
+          if (current.prev().length > 0) {
+            current.prev().addClass('active');
+            current_dot.prev().addClass('active');
           } else {
-            element.find(':first-child').addClass('active');
-            dots_container.find(':first-child').addClass('active');
+            element.find(':last-child').addClass('active');
+            dots_container.find(':last-child').addClass('active');
           }
         }, 2500);
       },
