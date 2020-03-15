@@ -1,0 +1,67 @@
+.footer {
+  background-color: $footer-color;
+  padding: 0;
+  width: 100%;
+  z-index: 1500;
+
+  .footer-container {
+    color: #ffffff;
+    text-align: center;
+    font-size: 12px;
+    padding: 15px 100px;
+    width: 100%;
+    min-width: $min-width;
+    max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .row {
+      &:first-child {
+        ul {
+          list-style-type: none;
+          text-align: left;
+          p {
+            padding-left: 4px;
+            color: #aeaeae;
+          }
+          li {
+            padding: 4px;
+            a {
+              text-decoration: none;
+              color: $navbar-font-color;
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+
+      &:last-child {
+        padding: 25px 25px 0 25px;
+        text-align: left;
+
+        .company-name {
+          margin-left: 10px;
+          font-size: 10pt;
+        }
+
+        .app-stores {
+          margin: -10px 0 0 -50px;
+          height: 50px;
+          width: auto;
+        }
+        .text-right {
+          margin-left: -50px;
+          height: 50px;
+        }
+      }
+    }
+
+    hr {
+      width: 90%;
+      border: none;
+      border-top: 1px solid #6e6e6e;
+    }
+  }
+}
