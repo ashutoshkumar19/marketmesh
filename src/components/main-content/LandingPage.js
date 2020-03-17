@@ -1,4 +1,5 @@
 import React from 'react';
+import Carousel from './Carousel.component';
 
 function LandingPage() {
   return (
@@ -715,82 +716,27 @@ function LandingPage() {
         </div>
 
         <div className='col-60 r1-c2-container'>
-          <div className='carousel box-container '>
-            <div className='carousel_2'>
-              <input
-                className='carousel_2_activator'
-                type='radio'
-                name='carousel_2'
-                id='F'
-                checked='checked'
-              />
-              <input className='carousel_2_activator' type='radio' name='carousel_2' id='G' />
-              <input className='carousel_2_activator' type='radio' name='carousel_2' id='H' />
-              <input className='carousel_2_activator' type='radio' name='carousel_2' id='I' />
-              <input className='carousel_2_activator' type='radio' name='carousel_2' id='J' />
-
-              <div className='carousel_2_controls'>
-                <label className='carousel_2_control carousel_2_control--backward' for='J'></label>
-                <label className='carousel_2_control carousel_2_control--forward' for='G'></label>
-              </div>
-              <div className='carousel_2_controls'>
-                <label className='carousel_2_control carousel_2_control--backward' for='F'></label>
-                <label className='carousel_2_control carousel_2_control--forward' for='H'></label>
-              </div>
-              <div className='carousel_2_controls'>
-                <label className='carousel_2_control carousel_2_control--backward' for='G'></label>
-                <label className='carousel_2_control carousel_2_control--forward' for='I'></label>
-              </div>
-              <div className='carousel_2_controls'>
-                <label className='carousel_2_control carousel_2_control--backward' for='H'></label>
-                <label className='carousel_2_control carousel_2_control--forward' for='J'></label>
-              </div>
-              <div className='carousel_2_controls'>
-                <label className='carousel_2_control carousel_2_control--backward' for='I'></label>
-                <label className='carousel_2_control carousel_2_control--forward' for='F'></label>
-              </div>
-              <div className='carousel_2_track'>
-                <li className='carousel_2_slide'>
-                  <img src='https://pbs.twimg.com/media/C8KNQo5UIAA94Q7.jpg' alt='' />
-                </li>
-                <li className='carousel_2_slide'>
-                  <img
-                    src='https://ae01.alicdn.com/kf/H42b8ff978f9f40c68f85025d62a2d533R.jpg'
-                    alt=''
-                  />
-                </li>
-                <li className='carousel_2_slide'>
-                  {/* <h1>H: Product 3</h1> */}
-                  <img
-                    src='https://ae01.alicdn.com/kf/H09d1e34a569a4e749f58b4179504c1bf6.png'
-                    alt=''
-                  />
-                </li>
-                <li className='carousel_2_slide'>
-                  {/* <h1>I: Product 4</h1> */}
-                  <img
-                    src='https://ae01.alicdn.com/kf/Hb549882efd9548fda0cb502383a43bdd3.png'
-                    alt=''
-                  />
-                </li>
-                <li className='carousel_2_slide'>
-                  {/* <h1>J: Product 5</h1> */}
-                  <img
-                    src='https://ae01.alicdn.com/kf/H60786de031ca4430a1a8a95fd3003d7aD.png'
-                    alt=''
-                  />
-                </li>
-              </div>
-              <div className='carousel_2_indicators'>
-                <label className='carousel_2_indicator' for='F'></label>
-                <label className='carousel_2_indicator' for='G'></label>
-                <label className='carousel_2_indicator' for='H'></label>
-                <label className='carousel_2_indicator' for='I'></label>
-                <label className='carousel_2_indicator' for='J'></label>
-              </div>
-            </div>
+          <div className='carousel-container'>
+            <Carousel
+              slides={[
+                'https://ae01.alicdn.com/kf/H09d1e34a569a4e749f58b4179504c1bf6.png',
+                'https://i01.appmifile.com/webfile/globalimg/Mandy/g7-Global-pc.jpg',
+                'https://pbs.twimg.com/media/C8KNQo5UIAA94Q7.jpg',
+                'https://ae01.alicdn.com/kf/H42b8ff978f9f40c68f85025d62a2d533R.jpg',
+                'https://ae01.alicdn.com/kf/Hb549882efd9548fda0cb502383a43bdd3.png',
+                'https://ae01.alicdn.com/kf/H60786de031ca4430a1a8a95fd3003d7aD.png'
+              ]}
+              links={[
+                'https://www.google.com',
+                'https://www.google.com',
+                'https://www.google.com',
+                'https://www.google.com',
+                'https://www.google.com',
+                'https://www.google.com'
+              ]}
+              timer={6000}
+            />
           </div>
-
           <div className='trending box-container'>
             <p className='heading'>
               <i className='fas fa-hourglass-half'></i> Trending
