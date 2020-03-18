@@ -1,86 +1,87 @@
-import React, { useEffect } from 'react';
-import $ from 'jquery';
+import React, { useEffect, useState } from 'react';
 
 function ProductCard(props) {
-  useEffect(() => {
-    let timer;
-    $('.slideshow-container').hover(
-      function() {
-        var element = $(this);
+  const count = props.images.length;
 
-        var dots_container = $(this)
-          .parents('.card-middle')
-          .siblings('.card-top')
-          .find('.dots-container');
+  const initialState = {};
+  for (let i = 0; i < count; i++) {
+    if (i === 0) {
+      initialState[i] = true;
+    } else {
+      initialState[i] = false;
+    }
+  }
+  const [state, setState] = useState(initialState);
 
-        dots_container.css({ opacity: '1' });
+  const [isMouseEnter, setIsMouseEnter] = useState(false);
 
-        timer = setInterval(function() {
-          var current = element.find('.active');
-          var current_dot = dots_container.find('.active');
-          current.removeClass('active');
-          current_dot.removeClass('active');
-
-          if (current.prev().length > 0) {
-            current.prev().addClass('active');
-            current_dot.prev().addClass('active');
-          } else {
-            element.find(':last-child').addClass('active');
-            dots_container.find(':last-child').addClass('active');
-          }
-        }, 2500);
-      },
-      function() {
-        clearInterval(timer);
-
-        var element = $(this);
-
-        var dots_container = $(this)
-          .parents('.card-middle')
-          .siblings('.card-top')
-          .find('.dots-container');
-
-        dots_container.css({ opacity: '0' });
-
-        element.children().removeClass('active');
-        element.find(':first-child').addClass('active');
-        dots_container.children().removeClass('active');
-        dots_container.find(':first-child').addClass('active');
-      }
+  // Dynamically create Slide and Dot elements
+  const slide_items = [];
+  const dot_items = [];
+  for (let i = 0; i < count; i++) {
+    slide_items.push(
+      <div key={i} className={state[i] ? 'slide active' : 'slide'}>
+        <img src={props.images[i]} alt={props.link} />
+      </div>
     );
-  }, []);
+    dot_items.push(<span key={i} className={state[i] ? 'dot active' : 'dot'}></span>);
+  }
+
+  const changeSlide = () => {
+    for (let i = 0; i < count; i++) {
+      if (state[i]) {
+        setState({ ...state, [i]: false, [(i + 1) % count]: true });
+        break;
+      }
+    }
+  };
+
+  const resetSlide = () => {
+    for (let i = 0; i < count; i++) {
+      if (state[i]) {
+        setState({ ...state, [i]: false, 0: true });
+        break;
+      }
+    }
+  };
+
+  const handleMouseEvent = value => {
+    if (value === 1) {
+      setIsMouseEnter(true);
+    } else {
+      setIsMouseEnter(false);
+      resetSlide();
+    }
+  };
+
+  useEffect(() => {
+    if (props.timer && props.timer > 0 && isMouseEnter) {
+      let timer = setInterval(function() {
+        changeSlide();
+      }, props.timer);
+      return () => {
+        clearInterval(timer);
+      };
+    }
+  }, [state, isMouseEnter]);
 
   return (
     <div className='card-product'>
       <div className='card-top'>
-        <div className='dots-container'>
-          {props.images.map((image, index) =>
-            index === 0 ? (
-              <span className='dot active' key={index}></span>
-            ) : (
-              <span className='dot' key={index}></span>
-            )
-          )}
+        <div className='dots-container' style={isMouseEnter ? { opacity: '1' } : { opacity: '0' }}>
+          {dot_items}
         </div>
         <div className='wishlist-icon-container' title='Add to wishlist'>
           <span className='fas fa-heart wishlist-icon'></span>
         </div>
       </div>
-      <div className='card-middle'>
-        <a href='#!' target='_blank'>
-          <div className='slideshow-container'>
-            {props.images.map((image, index) =>
-              index === 0 ? (
-                <div className='slide active' key={index}>
-                  <img src={image} alt='' />
-                </div>
-              ) : (
-                <div className='slide' key={index}>
-                  <img src={image} alt='' />
-                </div>
-              )
-            )}
-          </div>
+      <div
+        className='card-middle'
+        onMouseEnter={() => handleMouseEvent(1)}
+        onMouseLeave={() => handleMouseEvent(0)}
+      >
+        <a href={props.link} target='_blank' rel='noopener noreferrer'>
+          <div className='slideshow-container'>{slide_items}</div>
         </a>
       </div>
 
@@ -113,10 +114,12 @@ function ProductCard(props) {
         </div>
 
         <div className='item-statistics'>
-          <div className='star-ratings'>
-            <span className='star fas fa-star'></span>
-            <span className='rating'>{props.rating}</span>
-          </div>
+          {props.rating && (
+            <span className='star-ratings'>
+              <span className='star fas fa-star'></span>
+              <span className='rating'>{props.rating}</span>
+            </span>
+          )}
 
           {props.soldCount && (
             <div className='sold-count'>

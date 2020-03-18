@@ -3,7 +3,7 @@ import Carousel from './Carousel.component';
 
 function LandingPage() {
   return (
-    <div className='main-body'>
+    <div className='landing-page-body'>
       <div className='row row-1'>
         <div className='col-20 r1-c1-container '>
           <ul className='box-container'>

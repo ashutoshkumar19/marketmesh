@@ -6,7 +6,6 @@ import store from './store';
 import './styles/App.scss';
 
 import Navbar from './components/navbar/Navbar';
-// import MainContent from './components/MainContent/MainContent';
 import Footer from './components/footer/Footer';
 import LandingPage from './components/main-content/LandingPage';
 import NotFound from './components/layouts/NotFound.component';

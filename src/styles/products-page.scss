@@ -22,7 +22,6 @@
     .sidebar-filter {
       min-width: 250px;
       height: 600px;
-      // background-color: #fafafa;
       background-color: #cecece;
     }
 
@@ -35,6 +34,8 @@
       .card-product {
         margin: 1px;
         width: calc(25% - 2px);
+        // height: 440px;
+        float: left;
 
         // @media only screen and (min-width: 1600px) {
         //   width: calc(20% - 2px);
