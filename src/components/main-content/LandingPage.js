@@ -1,12 +1,13 @@
 import React from 'react';
 import Carousel from './Carousel.component';
+import TrendingContainer from './TrendingContainer';
 
 function LandingPage() {
   return (
     <div className='landing-page-body'>
       <div className='row row-1'>
         <div className='col-20 r1-c1-container '>
-          <ul className='box-container'>
+          <ul className='categories-container box-container'>
             <p className='heading'>
               <i className='fas fa-list'></i> Categories
             </p>
@@ -737,97 +738,13 @@ function LandingPage() {
               timer={6000}
             />
           </div>
-          <div className='trending box-container'>
+
+          <div className='trending-box-container box-container'>
             <p className='heading'>
               <i className='fas fa-hourglass-half'></i> Trending
             </p>
-            <div className='card-container'>
-              <div className='card-trending'>
-                <div className='card-header'></div>
-                <div className='card-body '>
-                  <img
-                    src='https://rukminim1.flixcart.com/image/150/150/juwzf680/headphone-refurbished/e/g/m/z-rockerz-255-boat-original-imaf8pudy3ebmssn.jpeg?q=70'
-                    alt=''
-                  />
-                </div>
-                <div className='card-footer'>
-                  <p>Earbuds &amp; Speakers</p>
-                  <p className='offer'>From ₹150</p>
-                  <div className='item-remaining-bar'>
-                    <div className='item-remaining'></div>
-                  </div>
-                  <p className='item-remaining-text'>45% Sold, 256 Remaining</p>
-                </div>
-              </div>
-              <div className='card-trending'>
-                <div className='card-header'></div>
-                <div className='card-body '>
-                  <img
-                    src='https://rukminim1.flixcart.com/image/150/150/k05ljm80/shoe/r/8/d/155064c-7-converse-black-original-imafjyephzyxstzc.jpeg?q=70'
-                    alt=''
-                  />
-                </div>
-                <div className='card-footer'>
-                  <p>Stylish Sneakers</p>
-                  <p className='offer'>From ₹999 Onwards</p>
-                  <div className='item-remaining-bar'>
-                    <div className='item-remaining'></div>
-                  </div>
-                  <p className='item-remaining-text'>45% Sold, 71 Remaining</p>
-                </div>
-              </div>
-              <div className='card-trending'>
-                <div className='card-header'></div>
-                <div className='card-body '>
-                  <img
-                    src='https://cdn.shopclues.com/images/thumbnails/52504/200/200/SNSDBL091484037735.jpg'
-                    alt=''
-                  />
-                </div>
-                <div className='card-footer'>
-                  <p>Floral Bedsheets</p>
-                  <p className='offer'>50% OFF, From ₹499</p>
-                  <div className='item-remaining-bar'>
-                    <div className='item-remaining'></div>
-                  </div>
-                  <p className='item-remaining-text'>45% Sold, 18 Remaining</p>
-                </div>
-              </div>
-              <div className='card-trending'>
-                <div className='card-header'></div>
-                <div className='card-body '>
-                  <img
-                    src='https://rukminim1.flixcart.com/image/150/150/jxhv1jk0/t-shirt/r/h/g/xxl-am-1020mdb-aelomart-original-imafhxyzuhtky3zy.jpeg?q=70'
-                    alt=''
-                  />
-                </div>
-                <div className='card-footer'>
-                  <p>T-Shirts</p>
-                  <p className='offer'>From ₹199+Extra 5%Off</p>
-                  <div className='item-remaining-bar'>
-                    <div className='item-remaining'></div>
-                  </div>
-                  <p className='item-remaining-text'>45% Sold, 256 Remaining</p>
-                </div>
-              </div>
-              <div className='card-trending'>
-                <div className='card-header'></div>
-                <div className='card-body '>
-                  <img
-                    src='https://cdn.shopclues.com/images1/thumbnails/76167/320/1/132176810-76167727-1552977047.jpg'
-                    alt=''
-                  />
-                </div>
-                <div className='card-footer'>
-                  <p>Sarees</p>
-                  <p className='offer'>Starting at ₹599</p>
-                  <div className='item-remaining-bar'>
-                    <div className='item-remaining'></div>
-                  </div>
-                  <p className='item-remaining-text'>45% Sold, 26 Remaining</p>
-                </div>
-              </div>
-            </div>
+
+            <TrendingContainer />
           </div>
         </div>
 

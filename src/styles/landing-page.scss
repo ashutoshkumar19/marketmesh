@@ -1,5 +1,5 @@
 .landing-page-body {
-  padding: 10px 15px;
+  padding: 5px;
   background-color: $background-color;
   min-width: $min-width;
   max-width: 1920px;
@@ -14,10 +14,10 @@
   }
 
   .row-1 {
-    height: 527px;
+    // height: 527px;
+    height: 535px;
 
     .r1-c1-container {
-      padding: 10px;
       // height: 527px;
       height: 100%;
       display: flex;
@@ -48,8 +48,8 @@
         li.categories-link {
           line-height: 18px;
           padding: 8px 12px;
-          font-size: 0.85em;
-          color: #2e2e2e;
+          font-size: 15px;
+          color: #1e1e1e;
           cursor: pointer;
           overflow: hidden;
           white-space: nowrap;
@@ -68,7 +68,7 @@
           }
 
           &:hover {
-            background-color: #fafafa;
+            background-color: #fefefe;
             font-weight: bold;
             color: $highlight-color;
             border-radius: 2px 0 0 2px;
@@ -83,10 +83,10 @@
 
             &::after {
               content: '';
-              background-color: #fafafa;
+              background-color: #fefefe;
               position: absolute;
               width: 8px;
-              right: 10px;
+              right: 4px;
               margin-top: -8px;
               height: 34px;
               z-index: 150;
@@ -96,16 +96,16 @@
           .category-expand {
             width: 900px;
             height: auto;
-            height: calc(100% - 20px);
+            height: calc(100% - 10px);
+            top: 5px;
+            margin-left: calc(100% - 26px);
+            position: absolute;
             overflow-y: auto;
             display: none;
-            background-color: #fafafa;
-            padding: 10px 10px 10px 10px;
+            background-color: #fefefe;
+            padding: 10px;
             z-index: 150;
-            border-radius: 2px 8px 8px 2px;
-            position: absolute;
-            top: 10px;
-            margin-left: calc(100% - 36px);
+            border-radius: 2px 5px 5px 2px;
             box-shadow: 0px 0px 8px 0 #aeaeae;
             cursor: default;
 
@@ -139,25 +139,26 @@
                 text-overflow: ellipsis;
                 -ms-text-overflow: ellipsis;
                 -o-text-overflow: ellipsis;
+                font-weight: normal;
 
                 &:last-child {
                   border-bottom: none;
                 }
 
                 .category-item-header {
-                  font-size: 0.93em;
+                  font-size: 13.5px;
                   margin: 5px;
                   color: #4e4e4e;
                   text-transform: uppercase;
-                  font-weight: bolder;
+                  font-weight: bold;
                 }
                 .category-item {
-                  font-size: 0.93em;
                   width: 100%;
                   line-height: 15px;
 
                   a {
                     text-decoration: none;
+                    font-size: 13.5px;
                     color: #6e6e6e;
 
                     &:hover {
@@ -168,7 +169,7 @@
                 }
 
                 .category-item-view-more a {
-                  font-size: 0.85em;
+                  font-size: 13px;
                   color: #0097a7;
                 }
               }
@@ -246,7 +247,6 @@
     }
 
     .r1-c2-container {
-      padding: 10px;
       height: 100%;
 
       .carousel-container {
@@ -258,38 +258,104 @@
         margin: 0;
       }
 
-      .trending {
+      .trending-box-container {
         margin-top: 10px;
         height: calc(48% - 10px);
         width: 100%;
         padding: 5px;
 
+        &:hover {
+          > .trending-scroll-control {
+            opacity: 1;
+          }
+        }
+
         .heading {
           margin: 0;
-          padding: 0 10px;
-          font-size: 1em;
+          padding: 2px 10px;
+          font-size: 14px;
           i {
             font-size: 10pt;
           }
         }
 
-        .card-container {
-          height: calc(100% - 1em);
+        .trending-card-container {
+          height: calc(100% - 16px);
           width: 100%;
-          padding: 10px 5px;
           display: flex;
-          overflow-y: hidden;
           overflow-x: auto;
+          overflow-y: hidden;
+          padding: 3px 5px 8px 5px;
+
+          min-width: 623px;
+          scroll-behavior: smooth;
 
           .card-trending {
-            margin: 0 5px;
+            margin: 0 4px;
+            min-width: 130px;
+            max-width: 130px;
+          }
+
+          &::-webkit-scrollbar {
+            height: 5px;
+          }
+          &::-webkit-scrollbar-track {
+            background-color: transparent;
+            border-radius: 5px;
+          }
+          &::-webkit-scrollbar-thumb {
+            background: #cecece;
+            border-radius: 5px;
+
+            &:hover {
+              background: #a0a0a0;
+            }
+          }
+        }
+
+        .trending-scroll-control {
+          position: relative;
+          height: 100%;
+          display: flex;
+          transform: translateY(-100%);
+          background-color: transparent;
+          transition: ease-in-out 800ms;
+          cursor: pointer;
+          opacity: 0;
+
+          &.control-left {
+            float: left;
+            margin-left: -5px;
+            i {
+              border-radius: 0 5px 5px 0;
+            }
+          }
+          &.control-right {
+            float: right;
+            margin-right: -5px;
+            i {
+              border-radius: 5px 0 0 5px;
+            }
+          }
+          i {
+            margin: auto;
+            color: #6e6e6e;
+            font-size: 28px;
+            padding: 25px 15px;
+            background-color: #ffffff;
+            transition: ease-in-out 200ms;
+            box-shadow: 0px 0 10px 0 #8e8e8e;
+            opacity: 0.6;
+            &:hover {
+              opacity: 1;
+              color: #4e4e4e;
+            }
           }
         }
       }
     }
 
     .r1-c3-container {
-      padding: 10px;
       height: 100%;
       div {
         height: 100%;

@@ -20,7 +20,7 @@ function ProductsPage() {
               'https://5.imimg.com/data5/VT/DA/MY-15780217/troops-tp-7040-extra-bass-headphone-500x500.jpg'
             ]}
             id={'id'}
-            title={'Hisonic 400 Super Extra Bass Bluetooth Headset with microphone'}
+            title={'Hisonic 400 microphone'}
             link={'#!'}
             currency={'₹'}
             price={'1499 - 1999'}

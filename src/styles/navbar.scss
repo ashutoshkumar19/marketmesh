@@ -177,7 +177,7 @@
               margin: auto;
 
               .symbol {
-                margin-right: 2.3px;
+                margin-right: 1.6px;
                 margin-top: auto;
                 margin-bottom: auto;
               }
@@ -307,7 +307,7 @@
               &:hover {
                 background-color: #daf2f5;
                 > a {
-                  color: $navbar-top-color;
+                  color: #007f8d;
                   font-weight: bold;
                 }
               }

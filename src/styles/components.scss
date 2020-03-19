@@ -1,3 +1,11 @@
+@mixin text-overflow-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+}
+
 .container {
   display: flex;
 }
@@ -296,21 +304,40 @@ li {
 /**************************************************/
 .card-trending {
   height: 100%;
-  width: 140px;
-  background-color: #fefefe;
+  width: auto;
+  background-color: #ffffff;
   border-radius: 5px;
-  box-shadow: 1px 1px 5px 0 #c0c0c0;
+  box-shadow: 1px 1px 5px 0 #cecece;
   cursor: pointer;
+  overflow: hidden;
+  transition: ease-in-out 250ms;
+  border: 1px solid #f0f0f0;
+
+  &:hover {
+    box-shadow: 1px 1px 5px 0 #a0a0a0;
+
+    .card-body > img {
+      transform: scale(1.05);
+    }
+    .card-footer > .title {
+      color: $trending-card-item-name-hover;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: unset;
+  }
 
   .card-body {
-    padding: 5px;
-    height: 55%;
+    overflow: hidden;
+    height: 53%;
     text-align: center;
 
     img {
       height: 100%;
-      width: auto;
-      max-width: 100%;
+      width: 100%;
+      transition: ease-in-out 200ms;
     }
   }
 
@@ -318,49 +345,46 @@ li {
     padding: 5px;
     height: 45%;
     text-align: center;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    -ms-text-overflow: ellipsis;
-    -o-text-overflow: ellipsis;
 
-    p {
-      font-size: 0.85em;
+    .title {
+      font-size: 13px;
       margin: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      line-height: 16px;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      transition: ease-in-out 200ms;
     }
     .offer {
-      font-size: 0.8em;
-      color: green;
-      margin-top: 2px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #26a541;
+      margin-top: 3px;
       text-align: center;
-      word-break: break-all;
+      @include text-overflow-ellipsis;
     }
 
     .item-remaining-bar {
-      margin: 5px 5px 0 5px;
-      height: 8px;
-      width: 90%;
+      margin: 5px 0;
+      height: 5px;
+      width: 100%;
       padding: 0;
-      border-radius: 5px;
+      border-radius: 10px;
       background-color: #e0e0e0;
       overflow: hidden;
 
       .item-remaining {
         height: 100%;
-        width: 45%;
         max-width: 100%;
-        background-color: rgb(255, 123, 0);
-        // background-color: #bb0000;
+        background: linear-gradient(to right, #ffc187, #ff7b00);
       }
     }
     .item-remaining-text {
-      margin: 5px 2px;
-      font-size: 0.7em;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      -ms-text-overflow: ellipsis;
-      -o-text-overflow: ellipsis;
+      margin: 6px 2px;
+      font-size: 12px;
+      @include text-overflow-ellipsis;
     }
   }
 }
