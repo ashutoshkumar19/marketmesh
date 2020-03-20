@@ -53,7 +53,6 @@
         width: 100%;
         margin-top: auto;
         margin-bottom: auto;
-        // padding: 5px 12px;
 
         .navbar-form {
           width: 100%;
@@ -62,13 +61,20 @@
 
           .first-wrap {
             .input-select {
+              height: 100%;
               select {
-                height: 2.45rem;
-                width: 6rem;
+                // height: 2.45rem;
+                height: 100%;
+                // width: 6rem;
+                max-width: 135px;
                 outline: none;
                 border: none;
                 border-radius: 5px 0 0 5px;
                 background-color: $navbar-form-select-color;
+                border-left: 2px solid orange;
+                border-top: 2px solid orange;
+                border-bottom: 2px solid orange;
+                font-size: 15px;
                 &:hover {
                   cursor: pointer;
                 }
@@ -79,26 +85,31 @@
             width: 100%;
             input {
               width: 100%;
-              height: 2.45rem;
+              height: 100%;
               border: none;
               padding: 0 10px;
-              font-size: 12pt;
+              font-size: 16px;
+              outline: none;
+              border: 2px solid orange;
+              border-left: none;
+              caret-color: orange;
             }
           }
           .third-wrap {
             text-align: center;
             .btn-search {
-              height: 2.45rem;
-              width: 2.8rem;
-              font-size: 1.4rem;
+              height: 40px;
+              width: 42px;
+              font-size: 22px;
               color: #3e3e3e;
               background-color: $btn-search-color;
               outline: none;
               border: none;
               border-radius: 0 5px 5px 0;
-
+              cursor: pointer;
+              transition: ease-in-out 200ms;
               &:hover {
-                cursor: pointer;
+                background-color: #f59f00;
               }
             }
           }
@@ -118,10 +129,11 @@
         margin: auto;
         padding: 12px 10px;
         width: auto;
+        margin-left: 4px;
+        cursor: pointer;
         transition: ease-in-out 200ms;
 
         &:hover {
-          cursor: pointer;
           background-color: $nav-item-hover-color;
 
           > .nav-dropdown-item-container {
@@ -129,6 +141,11 @@
             // opacity: 1;
             // visibility: visible;
           }
+        }
+
+        &.highlight {
+          background-color: $nav-item-hover-color;
+          border-radius: 5px;
         }
 
         .nav-item-link {
@@ -325,6 +342,25 @@
               }
             }
           }
+        }
+
+        .badge {
+          min-width: 16px;
+          width: fit-content;
+          height: 16px;
+          line-height: 16px;
+          vertical-align: middle;
+          font-size: 12px;
+          font-weight: bold;
+          padding: 0 4px;
+          background-color: red;
+          color: #ffffff;
+          border-radius: 18px;
+          box-shadow: 0 0 2px 0 red;
+          position: relative;
+          float: right;
+          margin-top: -32px;
+          margin-right: -16px;
         }
       }
     }

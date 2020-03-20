@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import SearchForm from './SearchForm.component';
 import { showLoginSignupModal } from '../../actions/modal.action';
 import { logout } from '../../actions/auth.action';
 
 const NavbarMain = ({ showLoginSignupModal, logout, auth: { isAuthenticated, user } }) => {
+  const initialState = {
+    cartItems: '2'
+  };
+  const [state, setstate] = useState(initialState);
+
+  const { cartItems } = state;
+
   return (
     <div className='navbar'>
       <div className='navbar-container'>
@@ -19,26 +27,7 @@ const NavbarMain = ({ showLoginSignupModal, logout, auth: { isAuthenticated, use
 
         <ul className='nav-item-container nav-center'>
           <div className='nav-item'>
-            <form className='navbar-form'>
-              <div className='input-field first-wrap'>
-                <div className='input-select'>
-                  <select data-trigger='' name='choices-single-defaul'>
-                    <option placeholder=''>Category</option>
-                    <option>Subject A</option>
-                    <option>Subject B</option>
-                    <option>Subject C</option>
-                  </select>
-                </div>
-              </div>
-              <div className='input-field second-wrap'>
-                <input id='search' type='text' placeholder='What are you looking for?' />
-              </div>
-              <div className='input-field third-wrap'>
-                <button className='btn-search' type='button'>
-                  <i className='fas fa-search'></i>
-                </button>
-              </div>
-            </form>
+            <SearchForm />
           </div>
         </ul>
 
@@ -79,37 +68,58 @@ const NavbarMain = ({ showLoginSignupModal, logout, auth: { isAuthenticated, use
 
               <ul className='account-nav-list text-left'>
                 <li>
-                  <a href='#!'>
+                  <a
+                    href='#!'
+                    onClick={!isAuthenticated ? e => showLoginSignupModal('login') : null}
+                  >
                     <i className='fas fa-clipboard-list'></i>My Orders
                   </a>
                 </li>
                 <li>
-                  <a href='#!'>
+                  <a
+                    href='#!'
+                    onClick={!isAuthenticated ? e => showLoginSignupModal('login') : null}
+                  >
                     <i className='fas fa-share'></i>My Returns
                   </a>
                 </li>
                 <li>
-                  <a href='#!'>
+                  <a
+                    href='#!'
+                    onClick={!isAuthenticated ? e => showLoginSignupModal('login') : null}
+                  >
                     <i className='fas fa-heart'></i>Wishlist
                   </a>
                 </li>
                 <li>
-                  <a href='#!'>
+                  <a
+                    href='#!'
+                    onClick={!isAuthenticated ? e => showLoginSignupModal('login') : null}
+                  >
                     <i className='fas fa-donate'></i>My Coupons
                   </a>
                 </li>
                 <li>
-                  <a href='#!'>
+                  <a
+                    href='#!'
+                    onClick={!isAuthenticated ? e => showLoginSignupModal('login') : null}
+                  >
                     <i className='fas fa-comments'></i>Message Center
                   </a>
                 </li>
                 <li>
-                  <a href='#!'>
+                  <a
+                    href='#!'
+                    onClick={!isAuthenticated ? e => showLoginSignupModal('login') : null}
+                  >
                     <i className='fas fa-comment-dots'></i>Reviews &amp; Feedbacks
                   </a>
                 </li>
                 <li>
-                  <a href='#!'>
+                  <a
+                    href='#!'
+                    onClick={!isAuthenticated ? e => showLoginSignupModal('login') : null}
+                  >
                     <i className='fas fa-bookmark'></i>My Favourite Stores
                   </a>
                 </li>
@@ -128,16 +138,18 @@ const NavbarMain = ({ showLoginSignupModal, logout, auth: { isAuthenticated, use
               </ul>
             </div>
           </li>
-          <li className='nav-item'>
-            <a className='nav-item-link' href='#!'>
-              <i className='fas fa-swatchbook symbol'></i> Orders
-            </a>
-          </li>
-          <li className='nav-item'>
+
+          <li className={cartItems > 0 ? 'nav-item highlight' : 'nav-item'}>
             <a className='nav-item-link' href='#!'>
               <i className='fas fa-cart-plus symbol'></i> Cart
             </a>
+            {cartItems > 0 && (
+              <div className='badge'>
+                <p>{cartItems}</p>
+              </div>
+            )}
           </li>
+
           <li className='nav-item nav-item-cur'>
             <a className='nav-item-link' href='#!'>
               <i className='fas fa-rupee-sign symbol'></i> INR{' '}
@@ -162,6 +174,7 @@ const NavbarMain = ({ showLoginSignupModal, logout, auth: { isAuthenticated, use
               </li>
             </ul>
           </li>
+
           <li className='nav-item nav-item-lang'>
             <a className='nav-item-link' href='#!'>
               <i className='fas fa-globe symbol'></i> English{' '}
