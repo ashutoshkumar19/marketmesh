@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TrendingCard(props) {
+function FlashDealsCard(props) {
   const offerText = props.price
     ? `${props.currency} ${props.price}`
     : props.maxPrice
@@ -21,7 +21,7 @@ function TrendingCard(props) {
   }
 
   return (
-    <div className='card-trending'>
+    <div className='card-flash-deals'>
       <a href={props.link} target='_blank' rel='noopener noreferrer'>
         <div className='card-header'></div>
         <div className='card-body '>
@@ -53,4 +53,4 @@ function TrendingCard(props) {
   );
 }
 
-export default TrendingCard;
+export default FlashDealsCard;

@@ -1,6 +1,8 @@
 import React from 'react';
 import Carousel from './Carousel.component';
-import TrendingContainer from './TrendingContainer';
+import FlashDealsCardContainer from './FlashDealsCardContainer';
+import LocationContainer from './LocationContainer';
+import TrendingStoreContainer from './TrendingStoreContainer';
 
 function LandingPage() {
   return (
@@ -739,17 +741,22 @@ function LandingPage() {
             />
           </div>
 
-          <div className='trending-box-container box-container'>
+          <div className='flash-deals-box-container box-container'>
             <p className='heading'>
-              <i className='fas fa-hourglass-half'></i> Trending
+              <i className='fas fa-hourglass-half'></i> Flash Deals
             </p>
 
-            <TrendingContainer />
+            <FlashDealsCardContainer />
           </div>
         </div>
 
         <div className='col-20 r1-c3-container'>
-          <div className='box-container'></div>
+          <div className='location-box-container box-container'>
+            <LocationContainer />
+          </div>
+          <div className='trending-store-box-container box-container'>
+            <TrendingStoreContainer />
+          </div>
         </div>
       </div>
 

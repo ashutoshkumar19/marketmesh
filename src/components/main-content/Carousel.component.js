@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-// import '../styles/Carousel.scss';
 
 function Carousel(props) {
   const count = props.slides.length;
@@ -13,6 +12,8 @@ function Carousel(props) {
     }
   }
   const [state, setstate] = useState(initialState);
+
+  const [isMouseEnter, setIsMouseEnter] = useState(false);
 
   const slide_items = [];
   const dot_items = [];
@@ -29,11 +30,11 @@ function Carousel(props) {
     );
   }
 
-  const handleDot = index => {
-    for (let i = 0; i < count; i++) {
-      if (state[i]) {
-        setstate({ ...state, [i]: false, [index]: true });
-      }
+  const handleMouseEvent = value => {
+    if (value === 1) {
+      setIsMouseEnter(true);
+    } else {
+      setIsMouseEnter(false);
     }
   };
 
@@ -52,8 +53,16 @@ function Carousel(props) {
     }
   };
 
+  const handleDot = index => {
+    for (let i = 0; i < count; i++) {
+      if (state[i]) {
+        setstate({ ...state, [i]: false, [index]: true });
+      }
+    }
+  };
+
   useEffect(() => {
-    if (props.timer && props.timer > 0) {
+    if (props.timer && props.timer > 0 && !isMouseEnter) {
       let timer = setInterval(function() {
         handleRightControl();
       }, props.timer);
@@ -61,10 +70,14 @@ function Carousel(props) {
         clearInterval(timer);
       };
     }
-  }, [state]);
+  }, [state, isMouseEnter]);
 
   return (
-    <div className='carousel'>
+    <div
+      className='carousel'
+      onMouseEnter={() => handleMouseEvent(1)}
+      onMouseLeave={() => handleMouseEvent(0)}
+    >
       <div className='slides-container'>{slide_items}</div>
 
       <div className='control control-left' onClick={() => handleLeftControl()}>

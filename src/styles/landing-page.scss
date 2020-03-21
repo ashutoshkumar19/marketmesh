@@ -14,7 +14,6 @@
   }
 
   .row-1 {
-    // height: 527px;
     height: 535px;
 
     .r1-c1-container {
@@ -258,14 +257,15 @@
         margin: 0;
       }
 
-      .trending-box-container {
+      .flash-deals-box-container {
         margin-top: 10px;
         height: calc(48% - 10px);
         width: 100%;
         padding: 5px;
+        color: #2e2e2e;
 
         &:hover {
-          > .trending-scroll-control {
+          > .flash-deals-scroll-control {
             opacity: 1;
           }
         }
@@ -279,18 +279,18 @@
           }
         }
 
-        .trending-card-container {
+        .flash-deals-card-container {
           height: calc(100% - 16px);
           width: 100%;
+          min-width: 623px;
           display: flex;
           overflow-x: auto;
           overflow-y: hidden;
           padding: 3px 5px 8px 5px;
-
-          min-width: 623px;
+          color: #0f0f0f;
           scroll-behavior: smooth;
 
-          .card-trending {
+          .card-flash-deals {
             margin: 0 4px;
             min-width: 130px;
             max-width: 130px;
@@ -313,7 +313,7 @@
           }
         }
 
-        .trending-scroll-control {
+        .flash-deals-scroll-control {
           position: relative;
           height: 100%;
           display: flex;
@@ -357,9 +357,121 @@
 
     .r1-c3-container {
       height: 100%;
-      div {
-        height: 100%;
-        // border-radius: 5px;
+
+      .location-box-container {
+        width: 100%;
+        height: 35%;
+
+        .location-container {
+          height: 100%;
+          width: 100%;
+          background-color: #fefefe;
+          padding: 10px;
+          background-image: linear-gradient(to bottom right, #01d6b3, yellow);
+
+          .img-container {
+            height: 40%;
+            padding: 5px;
+            text-align: center;
+
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          .info-display {
+            height: auto;
+            font-size: 13px;
+            padding: 10px 10px 5px 10px;
+            text-align: center;
+          }
+
+          .pincode-display-container {
+            width: 100%;
+            padding: 5px 10px;
+            text-align: center;
+
+            .pincode-text {
+              margin: 0 0 5px 0;
+              font-size: 16px;
+              span {
+                font-weight: bold;
+              }
+            }
+
+            .change-location-btn {
+              background-color: transparent;
+              border: none;
+              outline: none;
+              font-size: 13px;
+              cursor: pointer;
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+
+          .form-container {
+            height: 30%;
+            width: 100%;
+            padding: 5px 10px;
+            text-align: center;
+            display: flex;
+
+            form {
+              input {
+                outline: none;
+                width: 60%;
+                height: 25px;
+                font-size: 14px;
+                padding: 0 5px;
+                border: none;
+                box-shadow: 0 0 0 1px #cecece;
+                border-radius: 5px;
+                transition: ease-in-out 250ms;
+                align-content: space-between;
+
+                &:focus {
+                  border: none;
+                  box-shadow: 0 0 0 2px orange;
+                }
+              }
+              button {
+                margin-left: 5px;
+                height: 25px;
+                background-color: #4e4e4e;
+                padding: 5px 5px;
+                color: #ffffff;
+
+                &:hover {
+                  opacity: unset;
+                  background-color: #2e2e2e;
+                }
+                &:focus {
+                  box-shadow: none;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .trending-store-box-container {
+        width: 100%;
+        height: calc(65% - 10px);
+        margin: 10px 0 0 0;
+        background-color: #fefefe;
+
+        .trending-store-container {
+          height: 100%;
+          width: 100%;
+
+          img {
+            height: 100%;
+            width: 100%;
+          }
+        }
       }
     }
   }
