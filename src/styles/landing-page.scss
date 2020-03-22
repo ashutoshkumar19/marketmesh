@@ -1,5 +1,5 @@
 .landing-page-body {
-  padding: 5px;
+  padding: 5px 10px;
   background-color: $background-color;
   min-width: $min-width;
   max-width: 1920px;
@@ -10,7 +10,7 @@
     background-color: #fefefe;
     box-shadow: 2px 2px 8px 0 #cecece;
     overflow: hidden;
-    border-radius: 3px;
+    border-radius: 8px;
   }
 
   .row-1 {
@@ -249,7 +249,7 @@
       height: 100%;
 
       .carousel-container {
-        height: 52%;
+        height: 50%;
         overflow: hidden;
         position: relative;
         padding: 0;
@@ -259,97 +259,39 @@
 
       .flash-deals-box-container {
         margin-top: 10px;
-        height: calc(48% - 10px);
+        height: calc(50% - 10px);
         width: 100%;
         padding: 5px;
         color: #2e2e2e;
 
+        .slider-container-heading {
+          margin-left: 6px;
+          span {
+            font-size: 22px;
+            color: #ffc400;
+            background-color: #fff;
+          }
+          p {
+            font-size: 15px;
+            margin-left: 2px;
+          }
+        }
+
         &:hover {
-          > .flash-deals-scroll-control {
+          .slider-control {
             opacity: 1;
           }
         }
 
-        .heading {
-          margin: 0;
-          padding: 2px 10px;
-          font-size: 14px;
-          i {
-            font-size: 10pt;
-          }
-        }
-
-        .flash-deals-card-container {
-          height: calc(100% - 16px);
-          width: 100%;
+        .flash-deals-container {
+          height: calc(100% - 20px);
           min-width: 623px;
-          display: flex;
-          overflow-x: auto;
-          overflow-y: hidden;
-          padding: 3px 5px 8px 5px;
-          color: #0f0f0f;
-          scroll-behavior: smooth;
+          padding: 3px 5px 6px 5px;
 
           .card-flash-deals {
             margin: 0 4px;
             min-width: 130px;
             max-width: 130px;
-          }
-
-          &::-webkit-scrollbar {
-            height: 5px;
-          }
-          &::-webkit-scrollbar-track {
-            background-color: transparent;
-            border-radius: 5px;
-          }
-          &::-webkit-scrollbar-thumb {
-            background: #cecece;
-            border-radius: 5px;
-
-            &:hover {
-              background: #a0a0a0;
-            }
-          }
-        }
-
-        .flash-deals-scroll-control {
-          position: relative;
-          height: 100%;
-          display: flex;
-          transform: translateY(-100%);
-          background-color: transparent;
-          transition: ease-in-out 800ms;
-          cursor: pointer;
-          opacity: 0;
-
-          &.control-left {
-            float: left;
-            margin-left: -5px;
-            i {
-              border-radius: 0 5px 5px 0;
-            }
-          }
-          &.control-right {
-            float: right;
-            margin-right: -5px;
-            i {
-              border-radius: 5px 0 0 5px;
-            }
-          }
-          i {
-            margin: auto;
-            color: #6e6e6e;
-            font-size: 28px;
-            padding: 15px 10px;
-            background-color: #ffffff;
-            transition: ease-in-out 200ms;
-            box-shadow: 0px 0 10px 0 #8e8e8e;
-            opacity: 0.6;
-            &:hover {
-              opacity: 1;
-              color: #4e4e4e;
-            }
           }
         }
       }
@@ -411,7 +353,7 @@
                 width: 60%;
                 height: 25px;
                 font-size: 14px;
-                padding: 0 5px;
+                padding: 0 8px;
                 border: none;
                 box-shadow: 0 0 0 1px #cecece;
                 border-radius: 5px;
@@ -485,9 +427,60 @@
     margin-top: 5px;
     padding: 5px;
 
-    .flash-deals {
-      height: 250px;
-      // border-radius: 5px;
+    .trending-products-box-container {
+      height: 395px;
+      width: 100%;
+      padding: 10px 10px 0 10px;
+      background-color: #fff;
+
+      &:hover {
+        .slider-control {
+          opacity: 1;
+        }
+      }
+
+      .trending-products-container {
+        padding: 8px 0 10px 0;
+        background-color: #fff;
+
+        &::-webkit-scrollbar {
+          height: 6px;
+        }
+
+        .card-product {
+          margin: 0 5px;
+          min-width: 200px;
+          max-width: 200px;
+          border-radius: 8px;
+          box-shadow: 0 0 2px 0 #e0e0e0;
+
+          &:hover {
+            box-shadow: 0 2px 10px 0px #cecece;
+          }
+          .card-top > .wishlist-icon-container {
+            height: 25px;
+            width: 25px;
+            font-size: 16px;
+          }
+          .card-middle {
+            height: 150px;
+          }
+        }
+      }
+      .trending-products-scroll-control {
+        &.control-left {
+          margin-left: -10px;
+        }
+        &.control-right {
+          margin-right: -10px;
+        }
+        i {
+          padding: 25px 15px;
+        }
+      }
     }
+  }
+
+  .row-3 {
   }
 }

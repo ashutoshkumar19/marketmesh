@@ -313,6 +313,100 @@ li {
 }
 
 /**************************************************/
+/*                     Slider                     */
+/**************************************************/
+.slider-container-heading {
+  display: flex;
+  span,
+  i {
+    text-align: center;
+    padding: 2px;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #3dc000;
+    border-radius: 16px;
+  }
+  p {
+    vertical-align: middle;
+    margin: auto 0 auto 5px;
+    font-size: 16px;
+    color: #3e3e3e;
+    font-weight: bold;
+  }
+}
+.slider-container {
+  width: 100%;
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  color: #0f0f0f;
+  scroll-behavior: smooth;
+
+  /*&:hover {
+    ~ .slider-control {
+      opacity: 1;
+    }
+  }*/
+
+  &::-webkit-scrollbar {
+    height: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #cecece;
+    border-radius: 5px;
+
+    &:hover {
+      background: #a0a0a0;
+    }
+  }
+}
+.slider-control {
+  position: relative;
+  height: 100%;
+  display: flex;
+  transform: translateY(-100%);
+  background-color: transparent;
+  transition: ease-in-out 800ms;
+  cursor: pointer;
+  z-index: 500;
+  opacity: 0;
+
+  &.control-left {
+    float: left;
+    margin-left: -5px;
+    i {
+      border-radius: 0 5px 5px 0;
+      box-shadow: 3px 0 10px 0 #8e8e8e;
+    }
+  }
+  &.control-right {
+    float: right;
+    margin-right: -5px;
+    i {
+      border-radius: 5px 0 0 5px;
+      box-shadow: -3px 0 10px 0 #8e8e8e;
+    }
+  }
+  i {
+    margin: auto;
+    color: #6e6e6e;
+    font-size: 28px;
+    padding: 15px 10px;
+    background-color: #ffffff;
+    transition: ease-in-out 200ms;
+    opacity: 0.6;
+    &:hover {
+      opacity: 1;
+      color: #4e4e4e;
+    }
+  }
+}
+
+/**************************************************/
 /*               Flash Deals Card                 */
 /**************************************************/
 .card-flash-deals {
@@ -411,6 +505,7 @@ li {
 /**************************************************/
 /*                Product Card                    */
 /**************************************************/
+// Height: 20px + card-mid-width + 168px
 .card-product {
   width: auto;
   position: relative;

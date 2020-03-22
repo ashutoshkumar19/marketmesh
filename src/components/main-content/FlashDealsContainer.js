@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
 import FlashDealsCard from './FlashDealsCard.component';
 
-function FlashDealsCardContainer() {
+function FlashDealsContainer() {
   var content, cardWidth;
 
   const handleScroll = string => {
     if (!content || !cardWidth) {
-      content = document.getElementById('flash-deals-card-container');
+      content = document.getElementById('flash-deals-container');
       cardWidth = document.getElementsByClassName('card-flash-deals')[0].offsetWidth;
     }
     if (string === 'left') {
@@ -18,7 +18,12 @@ function FlashDealsCardContainer() {
 
   return (
     <Fragment>
-      <div className='flash-deals-card-container' id='flash-deals-card-container'>
+      <div className='slider-container-heading'>
+        <span class='material-icons'>offline_bolt</span>
+        <p>Flash Deals</p>
+      </div>
+
+      <div className='flash-deals-container slider-container' id='flash-deals-container'>
         <FlashDealsCard
           key={0}
           image={
@@ -120,14 +125,14 @@ function FlashDealsCardContainer() {
         />
       </div>
 
-      <div className='flash-deals-scroll-control control-left'>
+      <div className='flash-deals-scroll-control slider-control control-left'>
         <i className='fas fa-chevron-left' onClick={() => handleScroll('left')}></i>
       </div>
-      <div className='flash-deals-scroll-control control-right'>
+      <div className='flash-deals-scroll-control slider-control control-right'>
         <i className='fas fa-chevron-right' onClick={() => handleScroll('right')}></i>
       </div>
     </Fragment>
   );
 }
 
-export default FlashDealsCardContainer;
+export default FlashDealsContainer;

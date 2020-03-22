@@ -1,8 +1,9 @@
 import React from 'react';
 import Carousel from './Carousel.component';
-import FlashDealsCardContainer from './FlashDealsCardContainer';
+import FlashDealsContainer from './FlashDealsContainer';
 import LocationContainer from './LocationContainer';
 import TrendingStoreContainer from './TrendingStoreContainer';
+import TrendingProductsContainer from './TrendingProductsContainer';
 
 function LandingPage() {
   return (
@@ -742,11 +743,7 @@ function LandingPage() {
           </div>
 
           <div className='flash-deals-box-container box-container'>
-            <p className='heading'>
-              <i className='fas fa-hourglass-half'></i> Flash Deals
-            </p>
-
-            <FlashDealsCardContainer />
+            <FlashDealsContainer />
           </div>
         </div>
 
@@ -761,38 +758,14 @@ function LandingPage() {
       </div>
 
       <div className='row row-2'>
-        <div className='col-100 flash-deals box-container'>
-          <ul></ul>
+        <div className='col-100 trending-products-box-container box-container'>
+          <TrendingProductsContainer />
         </div>
       </div>
+
       <div className='row row-2'>
-        <div className='col-100 flash-deals box-container'>
-          <ul></ul>
-        </div>
-      </div>
-      <div className='row row-2'>
-        <div className='col-100 flash-deals box-container'>
-          <ul></ul>
-        </div>
-      </div>
-      <div className='row row-2'>
-        <div className='col-100 flash-deals box-container'>
-          <ul></ul>
-        </div>
-      </div>
-      <div className='row row-2'>
-        <div className='col-100 flash-deals box-container'>
-          <ul></ul>
-        </div>
-      </div>
-      <div className='row row-2'>
-        <div className='col-100 flash-deals box-container'>
-          <ul></ul>
-        </div>
-      </div>
-      <div className='row row-2'>
-        <div className='col-100 flash-deals box-container'>
-          <ul></ul>
+        <div className='col-100 trending-products-box-container box-container'>
+          <TrendingProductsContainer />
         </div>
       </div>
     </div>

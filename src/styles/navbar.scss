@@ -67,6 +67,7 @@
                 height: 100%;
                 // width: 6rem;
                 max-width: 135px;
+                font-size: 15px;
                 outline: none;
                 border: none;
                 border-radius: 5px 0 0 5px;
@@ -74,7 +75,6 @@
                 border-left: 2px solid orange;
                 border-top: 2px solid orange;
                 border-bottom: 2px solid orange;
-                font-size: 15px;
                 &:hover {
                   cursor: pointer;
                 }
