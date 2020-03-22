@@ -284,10 +284,13 @@
         }
 
         .flash-deals-container {
-          height: calc(100% - 20px);
+          height: calc(100% - 22px);
           min-width: 623px;
           padding: 3px 5px 6px 5px;
 
+          &::-webkit-scrollbar {
+            height: 5px;
+          }
           .card-flash-deals {
             margin: 0 4px;
             min-width: 130px;
