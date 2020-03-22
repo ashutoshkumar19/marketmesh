@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -48,24 +48,16 @@ function LocationContainer({ updateLocation, location: { location } }) {
         <p>Enter your pincode for nearest stores &amp; faster delivery options.</p>
       </div>
 
-      {location && !isFormVisible && (
+      {location && (
         <div className='pincode-display-container'>
           <p className='pincode-text'>
             Pincode: <span>{location}</span>
           </p>
-          <button
-            className='change-location-btn link-primary'
-            onClick={e => {
-              setFormData({ ...formData, isFormVisible: !isFormVisible });
-            }}
-          >
-            Change
-          </button>
         </div>
       )}
 
-      {isFormVisible && (
-        <div className='form-container'>
+      <div className='form-container'>
+        {isFormVisible ? (
           <form onSubmit={e => onSubmit(e)}>
             <input
               type='text'
@@ -78,8 +70,17 @@ function LocationContainer({ updateLocation, location: { location } }) {
               Submit
             </button>
           </form>
-        </div>
-      )}
+        ) : (
+          <button
+            className='btn btn-sm btn-dark change-location-btn'
+            onClick={e => {
+              setFormData({ ...formData, isFormVisible: !isFormVisible });
+            }}
+          >
+            Change
+          </button>
+        )}
+      </div>
     </div>
   );
 }
