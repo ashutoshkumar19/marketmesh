@@ -253,9 +253,10 @@ li {
     position: relative;
     height: 100%;
     display: flex;
-    padding: 0 8px;
+    padding: 0 6px;
     transform: translateY(-100%);
     cursor: pointer;
+    -webkit-backface-visibility: hidden;
 
     &.control-left {
       float: left;
@@ -372,6 +373,7 @@ li {
   background-color: transparent;
   transition: ease-in-out 800ms;
   cursor: pointer;
+  -webkit-backface-visibility: hidden;
   z-index: 500;
   opacity: 0;
 
@@ -551,7 +553,7 @@ li {
       }
       .active {
         background-color: $dot-color-active;
-        transform: scale(1.15);
+        // transform: scale(1.15);
       }
     }
 
@@ -679,11 +681,15 @@ li {
       .discount {
         width: fit-content;
         font-size: 12px;
+        line-height: 16px;
+        vertical-align: middle;
         font-weight: bolder;
-        color: $product-card-discount;
+        // color: $product-card-discount;
+        color: #ffffff;
+        background-color: $product-card-discount;
         padding: 2px 3px;
         border-radius: 5px;
-        border: 1px solid $product-card-discount;
+        // border: 1px solid $product-card-discount;
         float: right;
 
         .value {
