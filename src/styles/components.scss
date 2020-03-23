@@ -321,8 +321,9 @@ li {
   span,
   i {
     text-align: center;
-    padding: 2px;
+    padding: 4px;
     font-size: 18px;
+    // font-size: 20px;
     color: #ffffff;
     background-color: #3dc000;
     border-radius: 16px;
@@ -331,7 +332,7 @@ li {
     vertical-align: middle;
     margin: auto 0 auto 5px;
     font-size: 16px;
-    color: #3e3e3e;
+    color: #4e4e4e;
     font-weight: bold;
   }
 }
@@ -342,13 +343,8 @@ li {
   overflow-y: hidden;
   color: #0f0f0f;
   scroll-behavior: smooth;
-
-  /*&:hover {
-    ~ .slider-control {
-      opacity: 1;
-    }
-  }*/
-
+  scrollbar-color: #cecece transparent;
+  scrollbar-width: thin;
   &::-webkit-scrollbar {
     height: 5px;
   }
@@ -364,6 +360,11 @@ li {
       background: #a0a0a0;
     }
   }
+  /*&:hover {
+    ~ .slider-control {
+      opacity: 1;
+    }
+  }*/
 }
 .slider-control {
   position: relative;
