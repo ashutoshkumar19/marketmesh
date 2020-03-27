@@ -66,6 +66,18 @@ function LandingPage() {
           <TrendingStoresContainer />
         </div>
       </div>
+
+      <div className='row row-3'>
+        <div className='col-100 trending-stores-box-container box-container'>
+          <TrendingStoresContainer />
+        </div>
+      </div>
+
+      <div className='row row-3'>
+        <div className='col-100 trending-stores-box-container box-container'>
+          <TrendingStoresContainer />
+        </div>
+      </div>
     </div>
   );
 }

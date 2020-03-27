@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function SearchForm() {
   const initialState = {
@@ -106,11 +107,17 @@ function SearchForm() {
         />
       </div>
 
-      <div className='input-field third-wrap'>
+      <Link className='input-field third-wrap' to={'/products'}>
         <button className='btn-search' type='submit'>
           <i className='fas fa-search'></i>
         </button>
-      </div>
+      </Link>
+
+      {/* <div className='input-field third-wrap'>
+        <button className='btn-search' type='submit'>
+          <i className='fas fa-search'></i>
+        </button>
+      </div> */}
     </form>
   );
 }

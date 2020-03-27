@@ -1,6 +1,5 @@
 .landing-page-body {
   padding: 5px 10px;
-  background-color: $background-color;
   min-width: $min-width;
   max-width: 1920px;
   margin-left: auto;
@@ -434,7 +433,6 @@
     padding: 5px;
 
     .trending-products-box-container {
-      height: 398px;
       width: 100%;
       padding: 10px 10px 0 10px;
       background-color: #fff;
@@ -473,7 +471,7 @@
           }
         }
       }
-      .trending-products-scroll-control {
+      .slider-control {
         &.control-left {
           margin-left: -10px;
         }
@@ -492,7 +490,6 @@
     padding: 5px;
 
     .trending-stores-box-container {
-      height: 398px;
       width: 100%;
       padding: 10px 10px 0 10px;
       background-color: #fff;
@@ -517,28 +514,29 @@
           height: 6px;
         }
 
-        .card-product {
+        .card-store {
           margin: 0 5px;
-          min-width: 200px;
-          max-width: 200px;
-          border-radius: 8px;
-          box-shadow: 0 0 2px 0 #e0e0e0;
-
+          min-width: 300px;
+          max-width: 300px;
+          border: 1px solid #e0e0e0;
           &:hover {
             box-shadow: 0 2px 10px 0px #cecece;
           }
-          .card-top > .wishlist-icon-container {
+          .wishlist-icon-container {
             height: 25px;
             width: 25px;
-            font-size: 16px;
+            font-size: 15px;
           }
-          .card-middle {
+          .card-body {
             height: 150px;
+          }
+          .card-bottom > .cb-1 > .store-link-btn {
+            padding: 4px 5px;
           }
         }
       }
 
-      .trending-stores-scroll-control {
+      .slider-control {
         &.control-left {
           margin-left: -10px;
         }

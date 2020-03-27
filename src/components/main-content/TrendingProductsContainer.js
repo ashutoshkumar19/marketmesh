@@ -1,18 +1,38 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import ProductCard from './ProductCard.component';
 
 function TrendingProductsContainer() {
-  var content, cardWidth;
+  var sliderContainer, childWidth;
+
+  const randomString = () => {
+    var length = 10;
+    var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var result = '';
+    for (var i = length; i > 0; --i)
+      result += chars[Math.round(Math.random() * (chars.length - 1))];
+    return result;
+  };
+
+  const element_id = randomString();
+
+  useEffect(() => {
+    var containerHeight = document.getElementById(`slider-container-${element_id}`).offsetHeight;
+    var controlElement = document.getElementsByClassName(`slider-control-${element_id}`);
+    var controlHeight = controlElement[0].offsetHeight;
+    var height = containerHeight / 2 + controlHeight / 2;
+    controlElement[0].style.marginTop = `-${height}px`;
+    controlElement[1].style.marginTop = `-${height}px`;
+  }, []);
 
   const handleScroll = string => {
-    if (!content || !cardWidth) {
-      content = document.getElementById('trending-products-container');
-      cardWidth = document.getElementsByClassName('card-product')[0].offsetWidth;
+    if (!sliderContainer || !childWidth) {
+      sliderContainer = document.getElementById(`slider-container-${element_id}`);
+      childWidth = sliderContainer.firstChild.offsetWidth;
     }
     if (string === 'left') {
-      content.scrollLeft -= 2 * cardWidth;
+      sliderContainer.scrollLeft -= 2 * childWidth;
     } else {
-      content.scrollLeft += 2 * cardWidth;
+      sliderContainer.scrollLeft += 2 * childWidth;
     }
   };
 
@@ -30,7 +50,7 @@ function TrendingProductsContainer() {
       </div>
       <div
         className='trending-products-container slider-container'
-        id='trending-products-container'
+        id={`slider-container-${element_id}`}
       >
         <ProductCard
           images={[
@@ -40,13 +60,14 @@ function TrendingProductsContainer() {
             'https://5.imimg.com/data5/VT/DA/MY-15780217/troops-tp-7040-extra-bass-headphone-500x500.jpg'
           ]}
           id={'id'}
-          title={'Hisonic 400 Super Extra Bass Bluetooth Headset with microphone'}
-          link={'#!'}
+          productName={'Hisonic 400 Super Extra Bass Bluetooth Headset with microphone'}
+          productLink={'#!'}
           currency={'₹'}
           price={'1499 - 1999'}
           rating={'4.5'}
           soldCount={'2463'}
           storeName={'Hisonic Store'}
+          storeLink={'https://www.google.com'}
           timer={3000}
         />
         {list.map(i => (
@@ -58,8 +79,8 @@ function TrendingProductsContainer() {
               'https://5.imimg.com/data5/VT/DA/MY-15780217/troops-tp-7040-extra-bass-headphone-500x500.jpg'
             ]}
             id={'id'}
-            title={'Hisonic 400 Super Extra Bass Bluetooth Headset with microphone'}
-            link={'#!'}
+            productName={'Hisonic 400 Super Extra Bass Bluetooth Headset with microphone'}
+            productLink={'#!'}
             currency={'₹'}
             price={'1499 - 1999'}
             oldPrice={'2500'}
@@ -67,15 +88,16 @@ function TrendingProductsContainer() {
             rating={'4.5'}
             soldCount={'2463'}
             storeName={'Hisonic Store'}
+            storeLink={'https://www.google.com'}
             timer={3000}
           />
         ))}
       </div>
 
-      <div className='trending-products-scroll-control slider-control control-left'>
+      <div className={`slider-control control-left slider-control-${element_id}`}>
         <i className='fas fa-chevron-left' onClick={() => handleScroll('left')}></i>
       </div>
-      <div className='trending-products-scroll-control slider-control control-right'>
+      <div className={`slider-control control-right slider-control-${element_id}`}>
         <i className='fas fa-chevron-right' onClick={() => handleScroll('right')}></i>
       </div>
     </Fragment>

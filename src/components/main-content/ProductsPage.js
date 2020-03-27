@@ -20,13 +20,14 @@ function ProductsPage() {
               'https://5.imimg.com/data5/VT/DA/MY-15780217/troops-tp-7040-extra-bass-headphone-500x500.jpg'
             ]}
             id={'id'}
-            title={'Hisonic 400 microphone'}
-            link={'#!'}
+            productName={'Hisonic 400 microphone'}
+            productLink={'#!'}
             currency={'₹'}
             price={'1499 - 1999'}
             rating={'4.5'}
             soldCount={'2463'}
             storeName={'Hisonic Store'}
+            storeLink={'https://www.google.com'}
             timer={3000}
           />
           {list.map(i => (
@@ -38,8 +39,8 @@ function ProductsPage() {
                 'https://5.imimg.com/data5/VT/DA/MY-15780217/troops-tp-7040-extra-bass-headphone-500x500.jpg'
               ]}
               id={'id'}
-              title={'Hisonic 400 Super Extra Bass Bluetooth Headset with microphone'}
-              link={'#!'}
+              productName={'Hisonic 400 Super Extra Bass Bluetooth Headset with microphone'}
+              productLink={'#!'}
               currency={'₹'}
               price={'1499 - 1999'}
               oldPrice={'2500'}
@@ -47,6 +48,7 @@ function ProductsPage() {
               rating={'4.5'}
               soldCount={'2463'}
               storeName={'Hisonic Store'}
+              storeLink={'https://www.google.com'}
               timer={3000}
             />
           ))}

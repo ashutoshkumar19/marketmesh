@@ -1,18 +1,38 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import FlashDealsCard from './FlashDealsCard.component';
 
 function FlashDealsContainer() {
-  var content, cardWidth;
+  var sliderContainer, childWidth;
+
+  const randomString = () => {
+    var length = 10;
+    var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var result = '';
+    for (var i = length; i > 0; --i)
+      result += chars[Math.round(Math.random() * (chars.length - 1))];
+    return result;
+  };
+
+  const element_id = randomString();
+
+  useEffect(() => {
+    var containerHeight = document.getElementById(`slider-container-${element_id}`).offsetHeight;
+    var controlElement = document.getElementsByClassName(`slider-control-${element_id}`);
+    var controlHeight = controlElement[0].offsetHeight;
+    var height = containerHeight / 2 + controlHeight / 2;
+    controlElement[0].style.marginTop = `-${height}px`;
+    controlElement[1].style.marginTop = `-${height}px`;
+  }, []);
 
   const handleScroll = string => {
-    if (!content || !cardWidth) {
-      content = document.getElementById('flash-deals-container');
-      cardWidth = document.getElementsByClassName('card-flash-deals')[0].offsetWidth;
+    if (!sliderContainer || !childWidth) {
+      sliderContainer = document.getElementById(`slider-container-${element_id}`);
+      childWidth = sliderContainer.firstChild.offsetWidth;
     }
     if (string === 'left') {
-      content.scrollLeft -= 2 * cardWidth;
+      sliderContainer.scrollLeft -= 2 * childWidth;
     } else {
-      content.scrollLeft += 2 * cardWidth;
+      sliderContainer.scrollLeft += 2 * childWidth;
     }
   };
 
@@ -23,7 +43,7 @@ function FlashDealsContainer() {
         <p>Flash Deals</p>
       </div>
 
-      <div className='flash-deals-container slider-container' id='flash-deals-container'>
+      <div className='flash-deals-container slider-container' id={`slider-container-${element_id}`}>
         <FlashDealsCard
           key={0}
           image={
@@ -125,10 +145,10 @@ function FlashDealsContainer() {
         />
       </div>
 
-      <div className='flash-deals-scroll-control slider-control control-left'>
+      <div className={`slider-control control-left slider-control-${element_id}`}>
         <i className='fas fa-chevron-left' onClick={() => handleScroll('left')}></i>
       </div>
-      <div className='flash-deals-scroll-control slider-control control-right'>
+      <div className={`slider-control control-right slider-control-${element_id}`}>
         <i className='fas fa-chevron-right' onClick={() => handleScroll('right')}></i>
       </div>
     </Fragment>

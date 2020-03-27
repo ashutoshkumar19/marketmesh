@@ -1,4 +1,5 @@
 $min-width: 1065px;
+@import './colors.scss';
 
 * {
   box-sizing: border-box;
@@ -14,6 +15,7 @@ html {
 
 body {
   width: 100%;
+  background-color: $background-color;
 
   .main-content {
     padding: 0;

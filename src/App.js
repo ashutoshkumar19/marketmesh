@@ -14,19 +14,17 @@ import ProductsPage from './components/main-content/ProductsPage';
 function App() {
   return (
     <Provider store={store}>
-      <Fragment>
+      <Router>
         <Navbar />
         <div className='main-content'>
-          <Router>
-            <Switch>
-              <Route exact path='/' component={LandingPage} />
-              <Route exact path='/products' component={ProductsPage} />
-              <Route component={NotFound} />
-            </Switch>
-          </Router>
+          <Switch>
+            <Route exact path='/' component={LandingPage} />
+            <Route exact path='/products' component={ProductsPage} />
+            <Route component={NotFound} />
+          </Switch>
         </div>
         <Footer />
-      </Fragment>
+      </Router>
     </Provider>
   );
 }
