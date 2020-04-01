@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -8,11 +8,20 @@ import { logout } from '../../actions/auth.action';
 
 const NavbarMain = ({ showLoginSignupModal, logout, auth: { isAuthenticated, user } }) => {
   const initialState = {
-    cartItems: '2'
+    cartItems: 2
   };
   const [state, setstate] = useState(initialState);
 
   const { cartItems } = state;
+
+  const initialNotificationState = [];
+
+  for (var i = 0; i < 10; i++) {
+    initialNotificationState.push({
+      text: `${i} Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime a impedit accusantium`
+    });
+  }
+  console.log(initialNotificationState);
 
   return (
     <div className='navbar'>
@@ -33,9 +42,11 @@ const NavbarMain = ({ showLoginSignupModal, logout, auth: { isAuthenticated, use
 
         <ul className='nav-item-container nav-right'>
           <li className='nav-item nav-item-account'>
-            <a className='nav-item-link' href='#!'>
-              <i className='fa fa-user symbol'></i> Account
-            </a>
+            <div className='nav-item-link'>
+              <i className='fa fa-user symbol'></i>
+              <span className='text'>Account</span>
+            </div>
+            <div className='triangle'></div>
             <div className='nav-dropdown-item-container account-nav-box-container'>
               {isAuthenticated ? (
                 <div className='top-container loggedin'>
@@ -139,10 +150,11 @@ const NavbarMain = ({ showLoginSignupModal, logout, auth: { isAuthenticated, use
             </div>
           </li>
 
-          <li className={cartItems > 0 ? 'nav-item highlight' : 'nav-item'}>
-            <a className='nav-item-link' href='#!'>
-              <i className='fas fa-cart-plus symbol'></i> Cart
-            </a>
+          <li className={`nav-item ${cartItems > 0 && 'highlight'} `}>
+            <div className='nav-item-link'>
+              <i className='fas fa-cart-plus symbol'></i>
+              <span className='text'>Cart</span>
+            </div>
             {cartItems > 0 && (
               <div className='badge'>
                 <p>{cartItems}</p>
@@ -150,73 +162,81 @@ const NavbarMain = ({ showLoginSignupModal, logout, auth: { isAuthenticated, use
             )}
           </li>
 
+          <li
+            className={`nav-item symbol-only nav-item-notifications ${initialNotificationState.length >
+              0 && 'highlight'} `}
+          >
+            <div className='nav-item-link'>
+              <i className='fas fa-bell symbol'></i>
+            </div>
+
+            {initialNotificationState.length > 0 && (
+              <Fragment>
+                <div className='badge'>
+                  <p>{initialNotificationState.length}</p>
+                </div>
+                <div className='triangle'></div>
+                <div className='nav-dropdown-item-container notification-list-container'>
+                  <div className='notification-heading'>Notifications</div>
+                  <ul className='notification-list text-left'>
+                    {initialNotificationState.map((item, index) => (
+                      <li className='item'>
+                        <div className='item-text'>{item.text}</div>
+                        <span className='clear-btn material-icons' title='Remove'>
+                          close
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className='notification-footer'>
+                    <button className='clear-all-btn'>Clear All</button>
+                  </div>
+                </div>
+              </Fragment>
+            )}
+          </li>
+
           <li className='nav-item nav-item-cur'>
-            <a className='nav-item-link' href='#!'>
-              <i className='fas fa-rupee-sign symbol'></i> INR{' '}
+            <div className='nav-item-link'>
+              <i className='fas fa-rupee-sign symbol'></i>
+              <span className='text'>INR </span>
               <i className='fas fa-caret-down caret'></i>
-            </a>
+            </div>
             <ul className='nav-dropdown-item-container'>
-              <li className='nav-dropdown-item'>
-                <a className='nav-dropdown-item-link' href='#!'>
-                  <i className='fas fa-rupee-sign symbol'></i> INR
-                  <i className='fas fa-caret-down caret'></i>
-                </a>
+              <li className='nav-dropdown-item nav-dropdown-item-link'>
+                <i className='fas fa-rupee-sign symbol'></i>
+                <span className='text'>INR</span>
+                <i className='fas fa-caret-down caret'></i>
               </li>
-              <li className='nav-dropdown-item'>
-                <a className='nav-dropdown-item-link' href='#!'>
-                  <i className='fas fa-pound-sign symbol'></i> GBP
-                </a>
+              <li className='nav-dropdown-item nav-dropdown-item-link'>
+                <i className='fas fa-pound-sign symbol'></i>
+                <span className='text'>GBP</span>
               </li>
-              <li className='nav-dropdown-item'>
-                <a className='nav-dropdown-item-link' href='#!'>
-                  <i className='fas fa-dollar-sign symbol'></i> USD
-                </a>
+              <li className='nav-dropdown-item nav-dropdown-item-link'>
+                <i className='fas fa-dollar-sign symbol'></i>
+                <span className='text'>USD</span>
               </li>
             </ul>
           </li>
 
           <li className='nav-item nav-item-lang'>
-            <a className='nav-item-link' href='#!'>
-              <i className='fas fa-globe symbol'></i> English{' '}
+            <div className='nav-item-link'>
+              <i className='fas fa-globe symbol'></i>
+              <span className='text'>English </span>
               <i className='fas fa-caret-down caret'></i>
-            </a>
+            </div>
             <ul className='nav-dropdown-item-container'>
-              <li className='nav-dropdown-item'>
-                <a className='nav-dropdown-item-link' href='#!'>
-                  <i className='fas fa-globe symbol'></i> English
-                  <i className='fas fa-caret-down caret'></i>
-                </a>
+              <li className='nav-dropdown-item nav-dropdown-item-link'>
+                <i className='fas fa-globe symbol'></i>
+                <span className='text'>English</span>
+                <i className='fas fa-caret-down caret'></i>
               </li>
-              <li className='nav-dropdown-item'>
-                <a className='nav-dropdown-item-link' href='#!'>
-                  हिन्दी
-                </a>
-              </li>
-              <li className='nav-dropdown-item'>
-                <a className='nav-dropdown-item-link' href='#!'>
-                  বাংলা{' '}
-                </a>
-              </li>
-              <li className='nav-dropdown-item'>
-                <a className='nav-dropdown-item-link' href='#!'>
-                  தமிழ்
-                </a>
-              </li>
-              <li className='nav-dropdown-item'>
-                <a className='nav-dropdown-item-link' href='#!'>
-                  తెలుగు
-                </a>
-              </li>
-              <li className='nav-dropdown-item'>
-                <a className='nav-dropdown-item-link' href='#!'>
-                  ಕನ್ನಡ
-                </a>
-              </li>
-              <li className='nav-dropdown-item'>
-                <a className='nav-dropdown-item-link' href='#!'>
-                  മലയാളം
-                </a>
-              </li>
+              <li className='nav-dropdown-item nav-dropdown-item-link'>हिन्दी</li>
+              <li className='nav-dropdown-item nav-dropdown-item-link'>বাংলা </li>
+              <li className='nav-dropdown-item nav-dropdown-item-link'>தமிழ்</li>
+              <li className='nav-dropdown-item nav-dropdown-item-link'>తెలుగు</li>
+              <li className='nav-dropdown-item nav-dropdown-item-link'>ಕನ್ನಡ</li>
+              <li className='nav-dropdown-item nav-dropdown-item-link'>മലയാളം</li>
             </ul>
           </li>
         </ul>

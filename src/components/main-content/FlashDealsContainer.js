@@ -39,7 +39,7 @@ function FlashDealsContainer() {
   return (
     <Fragment>
       <div className='slider-container-heading'>
-        <span class='material-icons'>offline_bolt</span>
+        <span className='material-icons'>offline_bolt</span>
         <p>Flash Deals</p>
       </div>
 
