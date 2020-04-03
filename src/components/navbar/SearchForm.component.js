@@ -1,97 +1,110 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 function SearchForm() {
+  const [optionList, setOptionList] = useState([]);
+
+  useEffect(() => {
+    const options = [
+      { value: '0', text: 'All Categories' },
+      { value: '1', text: "Women's Clothing" },
+      { value: '2', text: "Men's Clothing" },
+      { value: '3', text: 'Cellphones & Telecommunications' },
+      { value: '4', text: 'Computer & Office' },
+      { value: '5', text: 'Consumer Electronics' },
+      { value: '6', text: 'Jewelry & Accessories' },
+      { value: '7', text: 'Home & Garden' },
+      { value: '8', text: 'Luggage & Bags' },
+      { value: '9', text: 'Shoes' },
+      { value: '10', text: 'Mother & Kids' },
+      { value: '11', text: 'Sports & Entertainment' },
+      { value: '12', text: 'Beauty & Health' },
+      { value: '13', text: 'Watches' },
+      { value: '14', text: 'Toys & Hobbies' },
+      { value: '15', text: 'Weddings & Events' },
+      { value: '16', text: 'Novelty & Special Use' },
+      { value: '17', text: 'Automobiles & Motorcycles' },
+      { value: '18', text: 'Lights & Lighting' },
+      { value: '19', text: 'Furniture' },
+      { value: '20', text: 'Electronic Components & Supplies' },
+      { value: '21', text: 'Education & Office Supplies' },
+      { value: '22', text: 'Home Appliances' },
+      { value: '23', text: 'Home Improvement' },
+      { value: '24', text: 'Food' },
+      { value: '25', text: 'Security & Protection' },
+      { value: '26', text: 'Tools' },
+      { value: '27', text: 'Hair Extensions & Wigs' },
+      { value: '28', text: 'Apparel Accessories' },
+      { value: '29', text: 'Underwears & Sleepwears' }
+    ];
+    setOptionList(options);
+  }, []);
+
   const initialState = {
+    selectedOption: '0',
     searchText: ''
   };
 
   const [formData, setFormData] = useState(initialState);
 
-  const { searchText } = formData;
+  const { selectedOption, searchText } = formData;
 
   const clearState = () => {
     setFormData({ ...initialState });
   };
 
   const handleChange = e => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleOptionChange = e => {
+    const { name, value, options, selectedIndex } = e.target;
+    setFormData({ ...formData, [name]: value });
+    var selectedText = options[selectedIndex].text;
+    console.log(selectedText);
+
+    // Dynamically set select box width
+    var canvas = document.createElement('canvas');
+    var context = canvas.getContext('2d');
+    var font = '16px Roboto';
+    context.font = font;
+    var width = context.measureText(selectedText).width + 22;
+    var formattedWidth = Math.ceil(width) + 'px';
+    var element = document.getElementById('search-dropdown-box');
+    element.style.width = formattedWidth;
+    if (width > 175) {
+      element.title = selectedText;
+    } else {
+      element.title = '';
+    }
   };
 
   const onFormSubmit = e => {
     e.preventDefault();
-    if (searchText.trim() !== '') {
+    const text = searchText.trim();
+    if (text !== '') {
       console.log(searchText);
     } else {
       clearState();
       console.log('Empty search field.....!');
     }
-    // login({ login_email, login_password }).then(clearState());
+    // search({ text }).then(clearState());
   };
 
   return (
     <form className='navbar-form' onSubmit={e => onFormSubmit(e)}>
       <div className='input-field first-wrap'>
         <div className='input-select'>
-          <select data-trigger='' name='choices-single-default' id='search-dropdown-box'>
-            <option value=''>All Categories</option>
-            <option value=''>Women's Clothing</option>
-            <option value=''>Men's Clothing</option>
-            <option value=''>Cellphones &amp; Telecommunications</option>
-            <option value=''>Computer &amp; Office</option>
-            <option value=''>Consumer Electronics</option>
-            <option value=''>Jewelry &amp; Accessories</option>
-            <option value=''>Home &amp; Garden</option>
-            <option value=''>Luggage &amp; Bags</option>
-            <option value=''>Shoes</option>
-            <option value=''>Mother &amp; Kids</option>
-            <option value=''>Sports &amp; Entertainment</option>
-            <option value=''>Beauty &amp; Health</option>
-            <option value=''>Watches</option>
-            <option value=''>Toys &amp; Hobbies</option>
-            <option value=''>Weddings &amp; Events</option>
-            <option value=''>Novelty &amp; Special Use</option>
-            <option value=''>Automobiles &amp; Motorcycles</option>
-            <option value=''>Lights &amp; Lighting</option>
-            <option value=''>Furniture</option>
-            <option value=''>Electronic Components &amp; Supplies</option>
-            <option value=''>Education &amp; Office Supplies</option>
-            <option value=''>Home Appliances</option>
-            <option value=''>Home Improvement</option>
-            <option value=''>Food</option>
-            <option value=''>Security &amp; Protection</option>
-            <option value=''>Tools</option>
-            <option value=''>Hair Extensions &amp; Wigs</option>
-            <option value=''>Apparel Accessories</option>
-            <option value=''>Underwear &amp; Sleepwears</option>
-            <option value=''>In All Categories</option>
-            {/* <option placeholder=''>All Categories</option>
-            <option>Women's Clothing</option>
-            <option>Men's Clothing</option>
-            <option>Mobile Phones &amp; Telecommunications</option>
-            <option>Computer &amp; office</option>
-            <option>Consumer Electronics</option>
-            <option>Home &amp; Appliances</option>
-            <option>Toys, Kids &amp; Babies</option>
-            <option>Beauty &amp; Health</option>
-            <option>Sports &amp; Fitness</option>
-            <option>Jwellery &amp; Watches</option>
-            <option>Automobiles</option>
-            <option>Automobiles</option>
-            <option>Automobiles</option>
-            <option>Automobiles</option>
-            <option>Automobiles</option>
-            <option>Automobiles</option>
-            <option>Automobiles</option>
-            <option>Automobiles</option>
-            <option>Automobiles</option>
-            <option>Automobiles</option>
-            <option>Automobiles</option>
-            <option>Automobiles</option>
-            <option>Automobiles</option>
-            <option>Automobiles</option>
-            <option>Automobiles</option>
-            <option>Automobiles</option> */}
+          <select
+            id='search-dropdown-box'
+            name='selectedOption'
+            value={selectedOption}
+            onChange={e => handleOptionChange(e)}
+          >
+            {optionList.map((item, index) => (
+              <option value={item.value}>{item.text}</option>
+            ))}
           </select>
         </div>
       </div>

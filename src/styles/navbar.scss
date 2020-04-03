@@ -63,10 +63,9 @@
             .input-select {
               height: 100%;
               select {
-                // height: 2.45rem;
                 height: 100%;
-                // width: 6rem;
-                max-width: 135px;
+                max-width: 175px;
+                width: 120px;
                 font-size: 15px;
                 outline: none;
                 border: none;
@@ -422,7 +421,7 @@
             border-top: 10px solid transparent;
             border-right: 10px solid transparent;
             // border-bottom: 10px solid $dropdown-item-hover-color;
-            border-bottom: 10px solid #2e2e2e;
+            border-bottom: 10px solid #3e3e3e;
             opacity: 0;
             visibility: hidden;
             transition: ease-in-out 100ms;
@@ -443,7 +442,7 @@
 
             .notification-heading {
               // background-color: $dropdown-item-hover-color;
-              background-color: #2e2e2e;
+              background-color: #3e3e3e;
               color: #fafafa;
               padding: 8px 10px;
               text-align: left;
@@ -494,9 +493,11 @@
                   cursor: pointer;
                   background-color: #c0c0c0;
                   color: #fff;
+                  user-select: none;
 
                   &:hover {
-                    background-color: #6e6e6e;
+                    // background-color: #6e6e6e;
+                    background-color: #ff6565;
                     color: #ffffff;
                   }
                 }

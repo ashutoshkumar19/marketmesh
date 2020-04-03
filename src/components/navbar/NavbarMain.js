@@ -1,27 +1,30 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import NotificationBox from './NotificationBox.component';
 
 import SearchForm from './SearchForm.component';
 import { showLoginSignupModal } from '../../actions/modal.action';
 import { logout } from '../../actions/auth.action';
+import { getAllNotifications } from '../../actions/notification.action';
+import { getCartItems } from '../../actions/cart.action';
 
-const NavbarMain = ({ showLoginSignupModal, logout, auth: { isAuthenticated, user } }) => {
-  const initialState = {
-    cartItems: 2
-  };
-  const [state, setstate] = useState(initialState);
+const NavbarMain = ({
+  showLoginSignupModal,
+  logout,
+  auth: { isAuthenticated, user },
+  getAllNotifications,
+  notification: { notification, loading },
+  getCartItems,
+  cart: { cart }
+}) => {
+  useEffect(() => {
+    getAllNotifications();
+  }, [getAllNotifications]);
 
-  const { cartItems } = state;
-
-  const initialNotificationState = [];
-
-  for (var i = 0; i < 10; i++) {
-    initialNotificationState.push({
-      text: `${i} Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime a impedit accusantium`
-    });
-  }
-  console.log(initialNotificationState);
+  useEffect(() => {
+    getCartItems();
+  }, [getCartItems]);
 
   return (
     <div className='navbar'>
@@ -150,50 +153,26 @@ const NavbarMain = ({ showLoginSignupModal, logout, auth: { isAuthenticated, use
             </div>
           </li>
 
-          <li className={`nav-item ${cartItems > 0 && 'highlight'} `}>
+          <li className={`nav-item ${cart.length > 0 && 'highlight'} `}>
             <div className='nav-item-link'>
               <i className='fas fa-cart-plus symbol'></i>
               <span className='text'>Cart</span>
             </div>
-            {cartItems > 0 && (
+            {cart.length > 0 && (
               <div className='badge'>
-                <p>{cartItems}</p>
+                <p>{cart.length}</p>
               </div>
             )}
           </li>
 
           <li
-            className={`nav-item symbol-only nav-item-notifications ${initialNotificationState.length >
-              0 && 'highlight'} `}
+            className={`nav-item symbol-only nav-item-notifications ${notification.length > 0 &&
+              'highlight'} `}
           >
             <div className='nav-item-link'>
               <i className='fas fa-bell symbol'></i>
             </div>
-
-            {initialNotificationState.length > 0 && (
-              <Fragment>
-                <div className='badge'>
-                  <p>{initialNotificationState.length}</p>
-                </div>
-                <div className='triangle'></div>
-                <div className='nav-dropdown-item-container notification-list-container'>
-                  <div className='notification-heading'>Notifications</div>
-                  <ul className='notification-list text-left'>
-                    {initialNotificationState.map((item, index) => (
-                      <li className='item'>
-                        <div className='item-text'>{item.text}</div>
-                        <span className='clear-btn material-icons' title='Remove'>
-                          close
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className='notification-footer'>
-                    <button className='clear-all-btn'>Clear All</button>
-                  </div>
-                </div>
-              </Fragment>
-            )}
+            <NotificationBox initialNotificationState={notification} />
           </li>
 
           <li className='nav-item nav-item-cur'>
@@ -248,11 +227,22 @@ const NavbarMain = ({ showLoginSignupModal, logout, auth: { isAuthenticated, use
 NavbarMain.propTypes = {
   showLoginSignupModal: PropTypes.func.isRequired,
   logout: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  getAllNotifications: PropTypes.func.isRequired,
+  notification: PropTypes.object.isRequired,
+  getCartItems: PropTypes.func.isRequired,
+  cart: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: state.auth,
+  notification: state.notification,
+  cart: state.cart
 });
 
-export default connect(mapStateToProps, { showLoginSignupModal, logout })(NavbarMain);
+export default connect(mapStateToProps, {
+  showLoginSignupModal,
+  getAllNotifications,
+  getCartItems,
+  logout
+})(NavbarMain);
