@@ -45,7 +45,7 @@ function FeaturedBrandsContainer() {
   return (
     <Fragment>
       <div className='slider-container-heading'>
-        <span className='material-icons'>storefront</span>
+        <span className='material-icons'>card_giftcard</span>
         <p>Featured Brands</p>
       </div>
       <div
@@ -88,7 +88,7 @@ function FeaturedBrandsContainer() {
               'https://www.youtube.com'
             ]}
             brandLogo={
-              'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Xiaomi_logo.svg/1024px-Xiaomi_logo.svg.png'
+              'https://i.pinimg.com/originals/f1/37/c8/f137c8e169d6a1ac74198400eeb949e0.jpg'
             }
             brandName={'Xiaomi'}
             brandLink={'https://www.google.com'}
