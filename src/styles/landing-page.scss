@@ -70,11 +70,12 @@
             &:hover {
               background-color: #fefefe;
               font-weight: bold;
-              color: $highlight-color;
+              // color: $highlight-color;
               border-radius: 2px 0 0 2px;
               box-shadow: -1px 2px 8px 0 #aeaeae;
               border-style: inset;
               border: 0;
+              // border-left: 4px solid #1e1e1e;
               border-left: 4px solid $highlight-color;
 
               > .category-expand {
@@ -532,6 +533,60 @@
           }
           .card-bottom > .cb-1 > .store-link-btn {
             padding: 4px 5px;
+          }
+        }
+      }
+
+      .slider-control {
+        &.control-left {
+          margin-left: -10px;
+        }
+        &.control-right {
+          margin-right: -10px;
+        }
+        i {
+          padding: 25px 15px;
+        }
+      }
+    }
+  }
+
+  .row-4 {
+    margin-top: 5px;
+    padding: 5px;
+
+    .featured-brands-box-container {
+      width: 100%;
+      padding: 10px 10px 0 10px;
+      background-color: #fff;
+
+      &:hover {
+        .slider-control {
+          opacity: 1;
+        }
+      }
+
+      .slider-container-heading {
+        span {
+          background-color: #00b5ec;
+        }
+      }
+
+      .featured-brands-container {
+        padding: 10px;
+        background-color: #fff;
+
+        &::-webkit-scrollbar {
+          height: 6px;
+        }
+
+        .card-brand {
+          margin: 0 5px;
+          min-width: 300px;
+          max-width: 300px;
+
+          .card-body {
+            height: 175px;
           }
         }
       }

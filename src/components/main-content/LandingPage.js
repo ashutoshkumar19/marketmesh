@@ -4,6 +4,7 @@ import FlashDealsContainer from './FlashDealsContainer';
 import LocationContainer from './LocationContainer';
 import TrendingProductsContainer from './TrendingProductsContainer';
 import TrendingStoresContainer from './TrendingStoresContainer';
+import FeaturedBrandsContainer from './FeaturedBrandsContainer';
 import CategoriesContainer from './CategoriesContainer';
 import DummyContainer from './DummyContainer';
 
@@ -67,9 +68,9 @@ function LandingPage() {
         </div>
       </div>
 
-      <div className='row row-3'>
-        <div className='col-100 trending-stores-box-container box-container'>
-          <TrendingStoresContainer />
+      <div className='row row-4'>
+        <div className='col-100 featured-brands-box-container box-container'>
+          <FeaturedBrandsContainer />
         </div>
       </div>
 
