@@ -6,7 +6,7 @@ import TrendingProductsContainer from './TrendingProductsContainer';
 import TrendingStoresContainer from './TrendingStoresContainer';
 import FeaturedBrandsContainer from './FeaturedBrandsContainer';
 import CategoriesContainer from './CategoriesContainer';
-import DummyContainer from './DummyContainer';
+import PromotedDealContainer from './PromotedDealContainer';
 
 function LandingPage() {
   return (
@@ -27,7 +27,7 @@ function LandingPage() {
                 'https://pbs.twimg.com/media/C8KNQo5UIAA94Q7.jpg',
                 'https://ae01.alicdn.com/kf/H42b8ff978f9f40c68f85025d62a2d533R.jpg',
                 'https://ae01.alicdn.com/kf/Hb549882efd9548fda0cb502383a43bdd3.png',
-                'https://ae01.alicdn.com/kf/H60786de031ca4430a1a8a95fd3003d7aD.png'
+                'https://ae01.alicdn.com/kf/H60786de031ca4430a1a8a95fd3003d7aD.png',
               ]}
               links={[
                 'https://www.google.com',
@@ -35,7 +35,7 @@ function LandingPage() {
                 'https://www.google.com',
                 'https://www.google.com',
                 'https://www.google.com',
-                'https://www.google.com'
+                'https://www.google.com',
               ]}
               timer={6000}
             />
@@ -50,8 +50,8 @@ function LandingPage() {
           <div className='location-box-container box-container'>
             <LocationContainer />
           </div>
-          <div className='dummy-box-container box-container'>
-            <DummyContainer />
+          <div className='promoted-deal-box-container box-container'>
+            <PromotedDealContainer />
           </div>
         </div>
       </div>
@@ -74,7 +74,10 @@ function LandingPage() {
         </div>
       </div>
 
-      <div className='row row-3'>
+      <div className='row row-5'>
+        <div className='col-100 trending-stores-box-container box-container'>
+          <TrendingStoresContainer />
+        </div>
         <div className='col-100 trending-stores-box-container box-container'>
           <TrendingStoresContainer />
         </div>

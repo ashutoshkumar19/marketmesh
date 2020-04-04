@@ -24,7 +24,7 @@ function FeaturedBrandsContainer() {
     controlElement[1].style.marginTop = `-${height}px`;
   }, []);
 
-  const handleScroll = string => {
+  const handleScroll = (string) => {
     if (!sliderContainer || !childWidth) {
       sliderContainer = document.getElementById(`slider-container-${element_id}`);
       childWidth = sliderContainer.firstChild.offsetWidth;
@@ -61,18 +61,18 @@ function FeaturedBrandsContainer() {
           productImages={[
             'https://smartmove254.com/wp-content/uploads/2019/12/Redmi-A3.jpg',
             'https://www.gizmochina.com/wp-content/uploads/2020/03/Xiaomi-Redmi-Note-9-Pro-Max-500x500.jpg',
-            'https://www.91-img.com/pictures/131776-v3-xiaomi-mi-mix-3-5g-mobile-phone-large-1.jpg'
+            'https://www.91-img.com/pictures/131776-v3-xiaomi-mi-mix-3-5g-mobile-phone-large-1.jpg',
           ]}
           productLinks={[
             'https://www.google.com',
             'https://www.amazon.com',
-            'https://www.youtube.com'
+            'https://www.youtube.com',
           ]}
           brandLogo={''}
           brandName={'Xiaomiers Hisonic Shenzen Bay Area Distributers'}
           brandLink={'https://www.google.com'}
         />
-        {list.map(i => (
+        {list.map((i) => (
           <BrandCard
             key={i}
             id={i}
@@ -80,12 +80,12 @@ function FeaturedBrandsContainer() {
             productImages={[
               'https://smartmove254.com/wp-content/uploads/2019/12/Redmi-A3.jpg',
               'https://www.gizmochina.com/wp-content/uploads/2020/03/Xiaomi-Redmi-Note-9-Pro-Max-500x500.jpg',
-              'https://www.91-img.com/pictures/131776-v3-xiaomi-mi-mix-3-5g-mobile-phone-large-1.jpg'
+              'https://www.91-img.com/pictures/131776-v3-xiaomi-mi-mix-3-5g-mobile-phone-large-1.jpg',
             ]}
             productLinks={[
               'https://www.google.com',
               'https://www.amazon.com',
-              'https://www.youtube.com'
+              'https://www.youtube.com',
             ]}
             brandLogo={
               'https://i.pinimg.com/originals/f1/37/c8/f137c8e169d6a1ac74198400eeb949e0.jpg'

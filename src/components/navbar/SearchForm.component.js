@@ -35,14 +35,14 @@ function SearchForm() {
       { value: '26', text: 'Tools' },
       { value: '27', text: 'Hair Extensions & Wigs' },
       { value: '28', text: 'Apparel Accessories' },
-      { value: '29', text: 'Underwears & Sleepwears' }
+      { value: '29', text: 'Underwears & Sleepwears' },
     ];
     setOptionList(options);
   }, []);
 
   const initialState = {
     selectedOption: '0',
-    searchText: ''
+    searchText: '',
   };
 
   const [formData, setFormData] = useState(initialState);
@@ -53,12 +53,12 @@ function SearchForm() {
     setFormData({ ...initialState });
   };
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleOptionChange = e => {
+  const handleOptionChange = (e) => {
     const { name, value, options, selectedIndex } = e.target;
     setFormData({ ...formData, [name]: value });
     var selectedText = options[selectedIndex].text;
@@ -80,7 +80,7 @@ function SearchForm() {
     }
   };
 
-  const onFormSubmit = e => {
+  const onFormSubmit = (e) => {
     e.preventDefault();
     const text = searchText.trim();
     if (text !== '') {
@@ -93,14 +93,14 @@ function SearchForm() {
   };
 
   return (
-    <form className='navbar-form' onSubmit={e => onFormSubmit(e)}>
+    <form className='navbar-form' onSubmit={(e) => onFormSubmit(e)}>
       <div className='input-field first-wrap'>
         <div className='input-select'>
           <select
             id='search-dropdown-box'
             name='selectedOption'
             value={selectedOption}
-            onChange={e => handleOptionChange(e)}
+            onChange={(e) => handleOptionChange(e)}
           >
             {optionList.map((item, index) => (
               <option value={item.value}>{item.text}</option>
@@ -116,7 +116,7 @@ function SearchForm() {
           name='searchText'
           placeholder='What are you looking for?'
           value={searchText}
-          onChange={e => handleChange(e)}
+          onChange={(e) => handleChange(e)}
         />
       </div>
 
