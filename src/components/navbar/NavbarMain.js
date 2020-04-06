@@ -1,8 +1,9 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import NotificationBox from './NotificationBox.component';
+import BrandLogo from '../../images/logo_white.jpg';
 
+import NotificationBox from './NotificationBox.component';
 import SearchForm from './SearchForm.component';
 import { showLoginSignupModal } from '../../actions/modal.action';
 import { logout } from '../../actions/auth.action';
@@ -16,7 +17,7 @@ const NavbarMain = ({
   getAllNotifications,
   notification: { notification, loading },
   getCartItems,
-  cart: { cart }
+  cart: { cart },
 }) => {
   useEffect(() => {
     getAllNotifications();
@@ -34,6 +35,7 @@ const NavbarMain = ({
             <a className='nav-item-link' href='#!'>
               MarketMesh
             </a>
+            {/* <img src={BrandLogo} alt='MarketMesh' /> */}
           </li>
         </ul>
 
@@ -66,13 +68,13 @@ const NavbarMain = ({
                   <div className='btn-container'>
                     <button
                       className='button login-btn'
-                      onClick={e => showLoginSignupModal('login')}
+                      onClick={(e) => showLoginSignupModal('login')}
                     >
                       Login
                     </button>
                     <button
                       className='button register-btn'
-                      onClick={e => showLoginSignupModal('signup')}
+                      onClick={(e) => showLoginSignupModal('signup')}
                     >
                       Register
                     </button>
@@ -84,7 +86,7 @@ const NavbarMain = ({
                 <li>
                   <a
                     href='#!'
-                    onClick={!isAuthenticated ? e => showLoginSignupModal('login') : null}
+                    onClick={!isAuthenticated ? (e) => showLoginSignupModal('login') : null}
                   >
                     <i className='fas fa-clipboard-list'></i>My Orders
                   </a>
@@ -92,7 +94,7 @@ const NavbarMain = ({
                 <li>
                   <a
                     href='#!'
-                    onClick={!isAuthenticated ? e => showLoginSignupModal('login') : null}
+                    onClick={!isAuthenticated ? (e) => showLoginSignupModal('login') : null}
                   >
                     <i className='fas fa-share'></i>My Returns
                   </a>
@@ -100,7 +102,7 @@ const NavbarMain = ({
                 <li>
                   <a
                     href='#!'
-                    onClick={!isAuthenticated ? e => showLoginSignupModal('login') : null}
+                    onClick={!isAuthenticated ? (e) => showLoginSignupModal('login') : null}
                   >
                     <i className='fas fa-heart'></i>Wishlist
                   </a>
@@ -108,7 +110,7 @@ const NavbarMain = ({
                 <li>
                   <a
                     href='#!'
-                    onClick={!isAuthenticated ? e => showLoginSignupModal('login') : null}
+                    onClick={!isAuthenticated ? (e) => showLoginSignupModal('login') : null}
                   >
                     <i className='fas fa-donate'></i>My Coupons
                   </a>
@@ -116,7 +118,7 @@ const NavbarMain = ({
                 <li>
                   <a
                     href='#!'
-                    onClick={!isAuthenticated ? e => showLoginSignupModal('login') : null}
+                    onClick={!isAuthenticated ? (e) => showLoginSignupModal('login') : null}
                   >
                     <i className='fas fa-comments'></i>Message Center
                   </a>
@@ -124,7 +126,7 @@ const NavbarMain = ({
                 <li>
                   <a
                     href='#!'
-                    onClick={!isAuthenticated ? e => showLoginSignupModal('login') : null}
+                    onClick={!isAuthenticated ? (e) => showLoginSignupModal('login') : null}
                   >
                     <i className='fas fa-comment-dots'></i>Reviews &amp; Feedbacks
                   </a>
@@ -132,7 +134,7 @@ const NavbarMain = ({
                 <li>
                   <a
                     href='#!'
-                    onClick={!isAuthenticated ? e => showLoginSignupModal('login') : null}
+                    onClick={!isAuthenticated ? (e) => showLoginSignupModal('login') : null}
                   >
                     <i className='fas fa-bookmark'></i>My Favourite Stores
                   </a>
@@ -144,7 +146,7 @@ const NavbarMain = ({
                 </li>
                 {isAuthenticated && (
                   <li>
-                    <a href='#!' onClick={e => logout(e)}>
+                    <a href='#!' onClick={(e) => logout(e)}>
                       <i className='fas fa-sign-out-alt'></i>Logout
                     </a>
                   </li>
@@ -166,8 +168,9 @@ const NavbarMain = ({
           </li>
 
           <li
-            className={`nav-item symbol-only nav-item-notifications ${notification.length > 0 &&
-              'highlight'} `}
+            className={`nav-item symbol-only nav-item-notifications ${
+              notification.length > 0 && 'highlight'
+            } `}
           >
             <div className='nav-item-link'>
               <i className='fas fa-bell symbol'></i>
@@ -231,18 +234,18 @@ NavbarMain.propTypes = {
   getAllNotifications: PropTypes.func.isRequired,
   notification: PropTypes.object.isRequired,
   getCartItems: PropTypes.func.isRequired,
-  cart: PropTypes.object.isRequired
+  cart: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   auth: state.auth,
   notification: state.notification,
-  cart: state.cart
+  cart: state.cart,
 });
 
 export default connect(mapStateToProps, {
   showLoginSignupModal,
   getAllNotifications,
   getCartItems,
-  logout
+  logout,
 })(NavbarMain);
