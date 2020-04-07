@@ -54,14 +54,16 @@ function BrandCard(props) {
               {props.brandName}
             </a>
           </div>
-          <a
-            href={props.brandLink}
-            className='brand-link-btn'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            View Catalogue
-          </a>
+          <div className='btn-container'>
+            <a
+              href={props.brandLink}
+              className='brand-link-btn'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              View Catalogue
+            </a>
+          </div>
         </div>
       </div>
     </div>

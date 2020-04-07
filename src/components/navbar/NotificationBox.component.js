@@ -5,32 +5,34 @@ import PropTypes from 'prop-types';
 import {
   getAllNotifications,
   clearNotification,
-  clearAllNotifications
+  clearAllNotifications,
 } from '../../actions/notification.action';
 
 function NotificationBox({
   getAllNotifications,
   clearNotification,
   clearAllNotifications,
-  notification: { notification, loading }
+  notification: { notification, loading },
 }) {
-  const handleRemove = index => {
+  const handleRemove = (index) => {
     clearNotification(index);
   };
   const handleClearAllBtn = () => {
     clearAllNotifications();
   };
   return (
-    notification.length > 0 && (
-      <Fragment>
+    <Fragment>
+      {notification.length > 0 && (
         <div className='badge'>
           <p>{notification.length}</p>
         </div>
-        <div className='triangle'></div>
-        <div className='nav-dropdown-item-container notification-list-container'>
-          <div className='notification-heading'>Notifications</div>
-          <ul className='notification-list text-left'>
-            {notification.map((item, index) => (
+      )}
+      <div className='triangle'></div>
+      <div className='nav-dropdown-item-container notification-list-container'>
+        <div className='notification-heading'>Notifications</div>
+        <ul className='notification-list text-left'>
+          {notification.length > 0 ? (
+            notification.map((item, index) => (
               <li className='item'>
                 <div className='item-text'>{item.text}</div>
                 <span
@@ -41,16 +43,22 @@ function NotificationBox({
                   close
                 </span>
               </li>
-            ))}
-          </ul>
+            ))
+          ) : (
+            <li className='item'>
+              <div className='item-text'>No Notifications Yet!</div>
+            </li>
+          )}
+        </ul>
+        {notification.length > 0 && (
           <div className='notification-footer'>
             <button className='clear-all-btn' onClick={handleClearAllBtn}>
               Clear All
             </button>
           </div>
-        </div>
-      </Fragment>
-    )
+        )}
+      </div>
+    </Fragment>
   );
 }
 
@@ -58,15 +66,15 @@ NotificationBox.propTypes = {
   getAllNotifications: PropTypes.func.isRequired,
   clearNotification: PropTypes.func.isRequired,
   clearAllNotifications: PropTypes.func.isRequired,
-  notification: PropTypes.object.isRequired
+  notification: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-  notification: state.notification
+const mapStateToProps = (state) => ({
+  notification: state.notification,
 });
 
 export default connect(mapStateToProps, {
   getAllNotifications,
   clearNotification,
-  clearAllNotifications
+  clearAllNotifications,
 })(NotificationBox);

@@ -876,8 +876,8 @@ li {
       }
 
       .store-name {
-        width: 55%;
-        margin: auto 10px;
+        width: calc(100% - 131px);
+        margin: auto 8px;
         color: $store-card-item-name;
         font-size: 15px;
         overflow: hidden;
@@ -897,23 +897,29 @@ li {
         }
       }
 
-      .store-link-btn {
+      .store-link-btn-container {
         width: 80px;
-        height: 100%;
-        margin: auto;
-        font-size: 14px;
-        padding: 5px;
-        text-align: center;
-        text-decoration: none;
-        border-radius: 25px;
-        color: #01a194;
-        border: 1px solid #01a194;
-        transition: ease-in-out 200ms;
 
-        &:hover {
-          color: #fff;
-          background-color: #01a194;
-          box-shadow: -2px 2px 5px 0 #aeaeae;
+        .store-link-btn {
+          float: right;
+          width: 100%;
+          margin: auto;
+          font-size: 14px;
+          padding: 5px;
+          text-align: center;
+          text-decoration: none;
+          border-radius: 25px;
+          color: #01a194;
+          border: 1px solid #01a194;
+          // color: #2e2e2e;
+          // border: 1px solid #6e6e6e;
+          transition: ease-in-out 200ms;
+
+          &:hover {
+            color: #fff;
+            background-color: #01a194;
+            box-shadow: -2px 2px 5px 0 #aeaeae;
+          }
         }
       }
     }
@@ -1064,6 +1070,7 @@ li {
     transition: ease-in-out 250ms;
 
     .cb-1 {
+      width: 100%;
       display: flex;
       padding: 2px;
 
@@ -1097,8 +1104,8 @@ li {
       }
 
       .brand-name {
-        width: 50%;
-        margin: auto 10px;
+        width: calc(100% - 161px);
+        margin: auto 8px;
         color: $brand-card-item-name;
         font-size: 15px;
         overflow: hidden;
@@ -1118,26 +1125,30 @@ li {
         }
       }
 
-      .brand-link-btn {
-        width: 125px;
-        height: 100%;
-        margin: auto;
-        font-size: 14px;
-        padding: 5px;
-        text-align: center;
-        text-decoration: none;
-        border-radius: 0px;
-        // color: #01a194;
-        // border: 1px solid #01a194;
-        color: #2e2e2e;
-        border: 1px solid #6e6e6e;
-        transition: ease-in-out 200ms;
+      .btn-container {
+        float: right;
+        width: 115px;
 
-        &:hover {
-          color: #fff;
-          background-color: #6e6e6e;
-          // background-color: #01a194;
-          box-shadow: -2px 2px 5px 0 #aeaeae;
+        .brand-link-btn {
+          float: right;
+          width: 100%;
+          margin: auto;
+          font-size: 14px;
+          padding: 5px;
+          text-align: center;
+          text-decoration: none;
+          border-radius: 0px;
+          // color: #01a194;
+          // border: 1px solid #01a194;
+          color: #2e2e2e;
+          border: 1px solid #6e6e6e;
+          transition: ease-in-out 200ms;
+
+          &:hover {
+            color: #fff;
+            background-color: #6e6e6e;
+            box-shadow: -2px 2px 5px 0 #aeaeae;
+          }
         }
       }
     }

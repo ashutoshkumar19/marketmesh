@@ -24,7 +24,7 @@ function TrendingStoresContainer() {
     controlElement[1].style.marginTop = `-${height}px`;
   }, []);
 
-  const handleScroll = string => {
+  const handleScroll = (string) => {
     if (!sliderContainer || !childWidth) {
       sliderContainer = document.getElementById(`slider-container-${element_id}`);
       childWidth = sliderContainer.firstChild.offsetWidth;
@@ -58,12 +58,12 @@ function TrendingStoresContainer() {
           images={[
             'https://resize.indiatvnews.com/en/resize/newbucket/715_-/2018/05/homedecor-1526358274.jpg',
             'https://katerinasgift.files.wordpress.com/2014/10/213.jpg',
-            'https://www.woodenstreet.com/images/home-decor/mobile-banner.jpg'
+            'https://www.woodenstreet.com/images/home-decor/mobile-banner.jpg',
           ]}
           productLinks={[
             'https://www.google.com',
             'https://www.amazon.com',
-            'https://www.youtube.com'
+            'https://www.youtube.com',
           ]}
           storeLogo={''}
           storeName={'Hisonic Shenzen Bay Area Distributers Hisonic Shenzen Bay Area Distributers'}
@@ -72,19 +72,19 @@ function TrendingStoresContainer() {
           categoryList={['Electronics', 'Audio']}
           categoryCode={Math.floor(Math.random() * 13)}
         />
-        {list.map(i => (
+        {list.map((i) => (
           <StoreCard
             key={i}
             id={i}
             images={[
               'https://resize.indiatvnews.com/en/resize/newbucket/715_-/2018/05/homedecor-1526358274.jpg',
               'https://katerinasgift.files.wordpress.com/2014/10/213.jpg',
-              'https://www.woodenstreet.com/images/home-decor/mobile-banner.jpg'
+              'https://www.woodenstreet.com/images/home-decor/mobile-banner.jpg',
             ]}
             productLinks={[
               'https://www.google.com',
               'https://www.amazon.com',
-              'https://www.youtube.com'
+              'https://www.youtube.com',
             ]}
             storeLogo={
               'https://image.freepik.com/free-vector/organic-store-logo-design-inspiration_18099-270.jpg'

@@ -40,20 +40,22 @@ function StoreCard(props) {
               {props.storeName}
             </a>
           </div>
-          <a
-            href={props.storeLink}
-            className='store-link-btn'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Visit Store
-          </a>
+          <div className='store-link-btn-container'>
+            <a
+              href={props.storeLink}
+              className='store-link-btn'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              Visit Store
+            </a>
+          </div>
         </div>
 
         <div className='cb-2'>
           {props.categoryList.length > 0 && (
             <div className='store-category'>
-              {props.categoryList.map(item => (
+              {props.categoryList.map((item) => (
                 <p>{item}</p>
               ))}
             </div>

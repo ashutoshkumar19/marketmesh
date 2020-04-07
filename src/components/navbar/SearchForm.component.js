@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import SearchSuggestion from './SearchSuggestion.component';
 
 function SearchForm() {
   const [optionList, setOptionList] = useState([]);
@@ -118,6 +119,7 @@ function SearchForm() {
           value={searchText}
           onChange={(e) => handleChange(e)}
         />
+        <SearchSuggestion searchText={searchText} />
       </div>
 
       <Link className='input-field third-wrap' to={'/products'}>

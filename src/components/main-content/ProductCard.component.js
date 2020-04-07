@@ -45,7 +45,7 @@ function ProductCard(props) {
     }
   };
 
-  const handleMouseEvent = value => {
+  const handleMouseEvent = (value) => {
     if (value === 1) {
       setIsMouseEnter(true);
     } else {
@@ -56,7 +56,7 @@ function ProductCard(props) {
 
   useEffect(() => {
     if (props.timer && props.timer > 0 && isMouseEnter) {
-      let timer = setInterval(function() {
+      let timer = setInterval(function () {
         changeSlide();
       }, props.timer);
       return () => {
