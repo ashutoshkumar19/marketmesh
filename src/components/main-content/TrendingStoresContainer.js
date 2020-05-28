@@ -57,7 +57,7 @@ function TrendingStoresContainer() {
           id={i}
           images={[
             'https://resize.indiatvnews.com/en/resize/newbucket/715_-/2018/05/homedecor-1526358274.jpg',
-            'https://katerinasgift.files.wordpress.com/2014/10/213.jpg',
+            'https://www.artzolo.com/sites/default/files/styles/blog/public/blog/images/indoors-3101776_1920.jpg',
             'https://www.woodenstreet.com/images/home-decor/mobile-banner.jpg',
           ]}
           productLinks={[
@@ -78,7 +78,7 @@ function TrendingStoresContainer() {
             id={i}
             images={[
               'https://resize.indiatvnews.com/en/resize/newbucket/715_-/2018/05/homedecor-1526358274.jpg',
-              'https://katerinasgift.files.wordpress.com/2014/10/213.jpg',
+              'https://www.artzolo.com/sites/default/files/styles/blog/public/blog/images/indoors-3101776_1920.jpg',
               'https://www.woodenstreet.com/images/home-decor/mobile-banner.jpg',
             ]}
             productLinks={[
